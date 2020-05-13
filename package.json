@@ -1,0 +1,30 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "",
+    "start": "",
+    "lint": "",
+    "debug": "",
+    "build": "",
+    "jsMin": "",
+    "lesscToCss": ""
+  },
+  "dependencies": {
+    "browserify": "^16.5.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin2751992/MicrobloggingWebapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevin2751992/MicrobloggingWebapp/issues"
+  },
+  "homepage": "https://github.com/kevin2751992/MicrobloggingWebapp#readme"
+}
