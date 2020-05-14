@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "",
-    "start": "",
+    "start": "node server.js",
+    "clean": "npm run clean:build && rm -rf node_modules", 
+    "clean:build": "rm -rf build",
     "lint": "",
     "debug": "",
     "build": "",
