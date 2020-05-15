@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "clean": "npm run clean:build && rm -rf node_modules", 
+    "start": "node BackEnd\\server.js",
+    "clean": "npm run clean:build && rm -rf node_modules",
     "clean:build": "rm -rf build",
     "lint": "",
-    "debug": "",
+    "debug": "node --inspect BackEnd\\server.js",
     "build": "",
     "jsMin": "",
     "lesscToCss": ""
