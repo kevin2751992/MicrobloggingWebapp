@@ -8,14 +8,15 @@
     "clean": "npm run clean:build && rm -rf node_modules",
     "clean:build": "rm -rf build",
     "lint": "",
-    "debug": "node --inspect BackEnd\\server.js",
+    "debug": "semistandard && node --inspect BackEnd\\server.js",
     "build": "",
     "jsMin": "",
     "lesscToCss": ""
   },
   "dependencies": {
     "browserify": "^16.5.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "semistandard": "^14.2.0"
   },
   "devDependencies": {},
   "repository": {
