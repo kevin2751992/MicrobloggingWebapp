@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node BackEnd\\server.js",
-    "clean": "npm run clean:build && rm -rf node_modules",
+    "clean": "npm run clean:build",
     "clean:build": "rm -rf build",
-    "lint": "",
+    "lint": "semistandard --fix",
     "debug": "semistandard && node --inspect BackEnd\\server.js",
-    "build": "",
+    "build": "minify --css && minify --js && semistandard && node --inspect BackEnd\\server.js",
     "jsMin": "",
     "lesscToCss": ""
   },
