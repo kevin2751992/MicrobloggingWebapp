@@ -4,21 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node BackEnd\\server.js",
-    "clean": "npm run clean:build",
-    "clean:build": "rm -rf build",
+    "start": "node ./BackEnd/server.js",
+    "clean": "npm run clean:build && rm -rf node_modules",
+    "clean:build": "rm -rf ./client/dist",
     "lint": "semistandard --fix",
-    "debug": "semistandard && node --inspect BackEnd\\server.js",
-    "build": "minify --css && minify --js && semistandard && node --inspect BackEnd\\server.js",
-    "jsMin": "",
+    "debug": "npm run lint && npm run debug-js && npm run debug-css",
+    "debug-js": "browserify ./client/main.js -o ./client/dist/main.js",
+    "debug-css": "lessc ./client/styles/main.less ./client/dist/main.css",
+    "build": "npm run lint && ",
+    "jsMin": "minify ./client/dist/main.js > ./client/dist/main.min.js",
+    "jsMin2": "browserify ./client/main.js | uglifyjs ./client/main.js > ./client/dist/bundle.js",
     "lesscToCss": ""
   },
   "dependencies": {
     "browserify": "^16.5.1",
     "express": "^4.17.1",
-    "semistandard": "^14.2.0"
+    "less": "^3.11.1",
+    "minify": "^5.1.1",
+    "semistandard": "^14.2.0",
+    "uglify": "^0.1.5",
+    "uglify-js": "^3.9.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-minify": "^0.5.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevin2751992/MicrobloggingWebapp.git"
