@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/BackEnd/server.js",
+    "start": "node ./src/Server/server.js",
     "clean": "rm -rf ./dist && rm -rf node_modules",
     "clean:build": "rm -rf ./dist",
     "lint": "semistandard --fix",
-    "debug": "npm run lint && npm run bundle-js && npm run debug-css",
+    "debug": "npm run lint && npm run bundle-js && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
     "bundle-js": "browserify ./src/client/main.js -o ./dist/bundle.js",
-    "debug-css": "lessc ./src/client/styles/main.less ./dist/main.css",
-    "build": "npm run lint && npm run bundle-js && npm run jsMin",
+    "lessTocss": "lessc ./src/client/styles/main.less ./dist/main.css",
+    "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
     "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.min.js && rm -rf ./dist/bundle.js",
     "lesscToCss": ""
   },

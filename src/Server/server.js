@@ -1,11 +1,14 @@
 const express = require('express');
 const server = express();
-let port = 8080;
+let port = 3000;
 if ((process.argv[2]) && (process.argv[2] > 0)) {
   port = process.argv[2];
 }
+server.use(express.static('MicrobloggingWebapp/dist'));
+
 server.listen(port, function () {
   console.log('server started on port: ' + port);
 });
-
-server.use(express.static('../FrontEnd/Dist'));
+server.get('/', function(req, res) {
+    res.sendFile('dist/index.html');
+});

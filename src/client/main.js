@@ -1,1 +1,5 @@
-console.log('hallo');
+function test () {
+  console.log('Dies ist ein Test');
+}
+
+test();
