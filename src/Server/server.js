@@ -9,6 +9,6 @@ server.use(express.static('MicrobloggingWebapp/dist'));
 server.listen(port, function () {
   console.log('server started on port: ' + port);
 });
-server.get('/', function(req, res) {
-    res.sendFile('dist/index.html');
+server.get('/', function (req, res) {
+  res.sendFile('index.html', { root: './dist' });
 });
