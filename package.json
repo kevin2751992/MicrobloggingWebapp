@@ -13,8 +13,8 @@
     "lessTocss": "lessc ./src/client/styles/main.less ./dist/main.css",
     "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
     "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.js ",
-    "watchDev": "nodemon --watch src --exec npm run serve",
-    "serve": "npm run build && npm run start"
+    "watchDev": "nodemon --watch src -e js,html,less --exec npm run serve",
+    "serve": "npm run debug && npm run start"
 
   },
   "dependencies": {
@@ -49,5 +49,8 @@
       "/dist/bundle.js",
       "dist/bundle.min.js"
     ]
+  },
+  "nodemon":{
+    "ext": "js,html,less"
   }
 }
