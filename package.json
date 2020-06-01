@@ -9,14 +9,17 @@
     "clean:build": "rm -rf ./dist",
     "lint": "semistandard --fix",
     "debug": "npm run lint && npm run bundle-js && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
-    "bundle-js": "browserify ./src/client/main.js -o ./dist/bundle.js",
+    "bundle-js": "browserify ./src/client/main.js  -o ./dist/bundle.js",
     "lessTocss": "lessc ./src/client/styles/main.less ./dist/main.css",
     "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
-    "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.min.js && rm -rf ./dist/bundle.js",
-    "lesscToCss": ""
+    "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.js ",
+    "watchDev": "nodemon --watch src --exec npm run serve",
+    "serve": "npm run build && npm run start"
+
   },
   "dependencies": {
     "browserify": "^16.5.1",
+    "eslint-config-standard": "^14.1.1",
     "express": "^4.17.1",
     "less": "^3.11.1",
     "minify": "^5.1.1",
@@ -26,7 +29,8 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-minify": "^0.5.1"
+    "babel-preset-minify": "^0.5.1",
+    "nodemon": "^2.0.4"
   },
   "repository": {
     "type": "git",
@@ -37,5 +41,13 @@
   "bugs": {
     "url": "https://github.com/kevin2751992/MicrobloggingWebapp/issues"
   },
-  "homepage": "https://github.com/kevin2751992/MicrobloggingWebapp#readme"
+  "homepage": "https://github.com/kevin2751992/MicrobloggingWebapp#readme",
+
+  "semistandard": {
+    "ignore": [
+      
+      "/dist/bundle.js",
+      "dist/bundle.min.js"
+    ]
+  }
 }
