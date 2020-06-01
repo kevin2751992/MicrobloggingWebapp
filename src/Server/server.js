@@ -11,7 +11,6 @@ if ((process.argv[2]) && (process.argv[2] > 0)) {
 
 server.get('/', function (req, res) {
   res.sendFile(INDEX);
-  console.log('test', process.cwd());
 }).use(express.static(path.join(process.cwd(), '/dist/')));
 
 server.listen(port, function () {
