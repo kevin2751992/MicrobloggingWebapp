@@ -3,7 +3,7 @@ const server = express();
 const path = require('path');
 const INDEX = path.join(process.cwd(), '/dist/index.html');
 
-let port = 3000;
+let port = 8080;
 if ((process.argv[2]) && (process.argv[2] > 0)) {
   port = process.argv[2];
 }
