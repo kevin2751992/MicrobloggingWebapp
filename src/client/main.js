@@ -1,4 +1,5 @@
-require('./test');
+import { controller } from './controller.mjs';
+require('./controller');
 
 // Add Eventlistener here
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -9,5 +10,5 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 function myFunction () {
   console.log('clicked');
-  document.getElementById('testButton').innerHTML = 'YOU CLICKED ME!';
+  controller.postNewBlogEntry('https://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
 }

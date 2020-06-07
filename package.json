@@ -15,7 +15,6 @@
     "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.js ",
     "watchDev": "nodemon --watch src --exec npm run serve",
     "serve": "npm run build && npm run start"
-
   },
   "dependencies": {
     "browserify": "^16.5.1",
@@ -23,6 +22,7 @@
     "express": "^4.17.1",
     "less": "^3.11.1",
     "minify": "^5.1.1",
+    "node-fetch": "^2.6.0",
     "semistandard": "^14.2.0",
     "uglify": "^0.1.5",
     "uglify-js": "^3.9.3"
@@ -42,10 +42,8 @@
     "url": "https://github.com/kevin2751992/MicrobloggingWebapp/issues"
   },
   "homepage": "https://github.com/kevin2751992/MicrobloggingWebapp#readme",
-
   "semistandard": {
     "ignore": [
-      
       "/dist/bundle.js",
       "dist/bundle.min.js"
     ]
