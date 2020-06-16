@@ -24,7 +24,7 @@ function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}
     console.log('fetch', JSON.stringify(response.body));
 
     return response.json();
-  })
+  });
 }
 
 function myFunction () {
