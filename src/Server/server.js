@@ -16,7 +16,7 @@ server.get('/', function (req, res) {
 }).use(express.static(path.join(process.cwd(), '/dist/')));
 
 // route SERVER put
-server.put('/newBlogEntry', (req, res) => {
+server.post('/newBlogEntry', (req, res) => {
   console.log('data', req.body);
   fs.writeFile('./src/Server/database/blogEntries.txt', 'TEST', function (error) {
     if (error) {
