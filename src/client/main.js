@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('testButton').addEventListener('click', myFunction);
 });
 
-function postNewBlogEntry (url = 'https://localhost:3000/newBlogEntry', data = {}) {
+function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}) {
   console.log('create new BlogEntry');
 
   const options = {
@@ -21,14 +21,14 @@ function postNewBlogEntry (url = 'https://localhost:3000/newBlogEntry', data = {
   };
 
   fetch(url, options).then(response => {
-    console.log('fetch', response);
+    console.log('fetch', JSON.stringify(response.body));
 
     return response.json();
-  });
+  })
 }
 
 function myFunction () {
   console.log('clicked');
 
-  postNewBlogEntry('https://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
+  postNewBlogEntry('http://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
 }

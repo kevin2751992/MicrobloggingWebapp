@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const INDEX = path.join(process.cwd(), '/dist/index.html');
 
-let port = 3000;
+let port = 8080;
 if ((process.argv[2]) && (process.argv[2] > 0)) {
   port = process.argv[2];
 }
@@ -15,9 +15,9 @@ server.get('/', function (req, res) {
   res.sendFile(INDEX);
 }).use(express.static(path.join(process.cwd(), '/dist/')));
 
-// route SERVER put
+// route SERVER post
 server.post('/newBlogEntry', (req, res) => {
-  console.log('data', req.body);
+  console.log('data', JSON.stringify(req.body));
   fs.writeFile('./src/Server/database/blogEntries.txt', 'TEST', function (error) {
     if (error) {
       return console.log('Error while file saving' + error);
@@ -25,7 +25,7 @@ server.post('/newBlogEntry', (req, res) => {
     console.log('File saved');
   });
 
-  return res.send('Received a PUT HTTP method');
+  return res.status(200).send('Received a PUT HTTP method');
 });
 
 server.listen(port, function () {
