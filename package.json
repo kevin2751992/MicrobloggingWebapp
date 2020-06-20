@@ -13,22 +13,33 @@
     "lessTocss": "lessc ./src/client/styles/main.less ./dist/main.css",
     "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
     "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.js ",
+<<<<<<< HEAD
     "watchDev": "nodemon --watch src -e js,html,less --exec npm run serve",
     "serve": "npm run debug && npm run start"
+=======
+    "watchDev": "nodemon --watch src --exec npm run serve",
+    "serve": "npm run build && npm run start"
+>>>>>>> BackEnd
   },
   "dependencies": {
-    "browserify": "^16.5.1",
+    "babel": "^6.23.0",
     "eslint-config-standard": "^14.1.1",
     "express": "^4.17.1",
     "less": "^3.11.1",
     "minify": "^5.1.1",
+    "node-fetch": "^2.6.0",
     "semistandard": "^14.2.0",
     "uglify": "^0.1.5",
     "uglify-js": "^3.9.3"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-minify": "^0.5.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.5.1",
     "nodemon": "^2.0.4"
   },
   "repository": {
@@ -47,7 +58,21 @@
       "dist/bundle.min.js"
     ]
   },
+<<<<<<< HEAD
   "nodemon": {
     "ext": "js,html,less"
+=======
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env"
+          ]
+        }
+      ]
+    ]
+>>>>>>> BackEnd
   }
 }
