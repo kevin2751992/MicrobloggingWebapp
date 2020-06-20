@@ -1,1 +1,4 @@
-console.log('test 2');
+
+export function test () {
+  console.log('test 2');
+}

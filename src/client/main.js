@@ -1,10 +1,14 @@
 
 import fetch from 'node-fetch';
-
+const modal = require('./components/Modal');
+const test = require('./test');
+test.test();
+document.appendChild(modal);
 // Add Eventlistener here
 document.addEventListener('DOMContentLoaded', function (event) {
   // the event occurred
   console.log('loaded');
+
   document.getElementById('testButton').addEventListener('click', myFunction);
 });
 
