@@ -20,8 +20,9 @@
     "babel": "^6.23.0",
     "eslint-config-standard": "^14.1.1",
     "express": "^4.17.1",
-    "less": "^3.11.1",
+    "less": "^3.11.1", 
     "minify": "^5.1.1",
+    "moment": "^2.27.0",
     "node-fetch": "^2.6.0",
     "semistandard": "^14.2.0",
     "uglify": "^0.1.5",
@@ -68,5 +69,24 @@
         }
       ]
     ]
+  },
+  "nodemon":{
+    "name": "test-nodemon",
+    "version": "1.0.0",
+    "description": "",
+    "nodemonConfig": {
+      "watch": [
+        "*.js","*.html"
+      ],
+      "ext": ".js, .html, .less",
+      "ignore": [
+        
+      ],
+      "delay": "3",
+      "execMap": {
+        "ts": "ts-node"
+      }
+    }
   }
+    
 }

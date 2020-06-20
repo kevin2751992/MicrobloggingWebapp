@@ -1,10 +1,15 @@
 export default class Modal extends window.HTMLElement {
   constructor () {
+    // Always call super first in constructor
     super();
-    // initializations
-
-    var shadow = this.attachShadow({ mode: 'open' });
-    shadow.innerHTML = ' <h1>Test</h1>';
+    console.log('Component added');
+    // Create a shadow root
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.innerHTML = `
+         <!-- this styling is scoped to the element! -->
+         <style>h1 { color: red; }</style>
+         <h1>Greetings from the dark side of the DOM</h1>
+      `;
   }
 
   // Lifecycle
@@ -12,9 +17,7 @@ export default class Modal extends window.HTMLElement {
     console.log('Component added');
   }
 
-  attributeChangeCallback () {}
-  disconnectedCallback () {}
+  attributeChangeCallback () { }
+  disconnectedCallback () { }
 }
-
-const customElementRegistry = window.customElements;
-customElementRegistry.define('mymodal', Modal);
+window.customElements.define('my-modal', Modal);

@@ -1,16 +1,21 @@
 
 import fetch from 'node-fetch';
-const modal = require('./components/Modal');
-const test = require('./test');
-test.test();
-document.appendChild(modal);
-// Add Eventlistener here
-document.addEventListener('DOMContentLoaded', function (event) {
-  // the event occurred
-  console.log('loaded');
+import { BlogPosts } from './js/blogPosts';
 
-  document.getElementById('testButton').addEventListener('click', myFunction);
-});
+window.onload = init;
+
+function init () {
+  // the code to be called when the dom has loaded
+  // #document has its nodes
+  const blogEntriy = new BlogPosts();
+  blogEntriy.createBlogPosts();
+  // Add Eventlistener here
+  document.addEventListener('DOMContentLoaded', function (event) {
+  // the event occurred
+    console.log('loaded');
+    document.getElementById('testButton').addEventListener('click', myFunction);
+  });
+}
 
 function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}) {
   console.log('create new BlogEntry');
