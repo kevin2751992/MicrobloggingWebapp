@@ -3,6 +3,11 @@ import { BlogPosts } from './js/blogPosts';
 import { Pagination } from './js/pagination';
 
 window.onload = init;
+document.addEventListener('DOMContentLoaded', function (event) {
+  // the event occurred
+  console.log('loaded');
+  document.getElementById('testButton').addEventListener('click', myFunction);
+});
 
 function init () {
   // the code to be called when the dom has loaded
@@ -13,11 +18,6 @@ function init () {
   pagination.createPagination();
 
   // Add Eventlistener here
-  document.addEventListener('DOMContentLoaded', function (event) {
-  // the event occurred
-    console.log('loaded');
-    document.getElementById('testButton').addEventListener('click', myFunction);
-  });
 }
 
 function getNewBlogEntry () {
