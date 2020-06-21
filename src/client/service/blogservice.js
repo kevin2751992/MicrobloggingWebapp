@@ -14,6 +14,7 @@ class BlogPost {
     this.meta = { created: created };
   }
 }
+
 export class Blogservice {
   constructor () {
     this.blogPosts = [];
@@ -28,7 +29,7 @@ export class Blogservice {
         {
           title: 'TestTitle' + i,
           text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          img: ''
+          img: 'https://via.placeholder.com/600'
         },
         { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, h:mm:ss ')).fromNow() },
         { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' }

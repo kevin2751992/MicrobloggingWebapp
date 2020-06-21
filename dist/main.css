@@ -67,14 +67,42 @@ html {
   box-sizing: border-box;
   padding: 20px;
   float: left;
-  width: 60%;
+  width: 40%;
+  margin-left: 10%;
   border: solid;
+}
+.boggify .main .bloggingContainer .blogPostContainer {
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .metaContainer {
+  display: inline-flex;
+  padding: 5px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .metaContainer .avatar {
+  height: 64px;
+  width: 64px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
+  padding: 13px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .blogPost {
+  background-color: #ffffff;
+}
+.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostmedia {
+  height: auto;
+  width: 100%;
 }
 .boggify .main .aside-right {
   box-sizing: border-box;
   width: 40%;
   float: right;
-  height: 400px;
   padding: 20px;
   border: solid;
 }
