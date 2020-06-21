@@ -1,5 +1,5 @@
-
 import fetch from 'node-fetch';
+// import users from './info.js';
 
 // Add Eventlistener here
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -8,27 +8,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('testButton').addEventListener('click', myFunction);
 });
 
-function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}) {
-  console.log('create new BlogEntry');
-
-  const options = {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  };
-
-  fetch(url, options).then(response => {
-    console.log('fetch', JSON.stringify(response.body));
-
-    return response.json();
-  });
+function getNewBlogEntry () {
+  console.log('hello');
+  return fetch('/blogEntries')
+    .then(response => response.json())
+    .then(data => console.log(data));
 }
 
 function myFunction () {
   console.log('clicked');
-
-  postNewBlogEntry('http://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
+  getNewBlogEntry();
 }
