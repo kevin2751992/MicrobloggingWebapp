@@ -84,6 +84,7 @@ html {
 .boggify .main .bloggingContainer .blogPostContainer .metaContainer .avatar {
   height: 64px;
   width: 64px;
+  border-radius: 5px;
 }
 .boggify .main .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
   padding: 13px;
@@ -92,12 +93,18 @@ html {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .blogPost {
-  background-color: #ffffff;
-}
-.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostmedia {
+.boggify .main .bloggingContainer .blogPostContainer .blogPostmedia {
   height: auto;
   width: 100%;
+}
+.boggify .main .bloggingContainer .blogPostContainer .blogPost {
+  padding: 10px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
+  font-size: 16px;
+}
+.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostText {
+  font-size: 16px;
 }
 .boggify .main .aside-right {
   box-sizing: border-box;

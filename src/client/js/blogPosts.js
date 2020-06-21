@@ -31,9 +31,9 @@ export class BlogPosts {
       blogPostHeader.className = 'blogPostHeader';
       blogPostHeader.innerHTML = item.content.title;
 
-      const blogPostmedia = document.createElement('img');
-      blogPostmedia.className = 'blogPostmedia';
-      blogPostmedia.src = item.content.img;
+      const blogPostimg = document.createElement('img');
+      blogPostimg.className = 'blogPostmedia';
+      blogPostimg.src = item.content.img;
 
       const blogPostText = document.createElement('p');
       blogPostText.className = 'blogPostText';
@@ -64,15 +64,16 @@ export class BlogPosts {
       metaContainer.appendChild(metaHeaderContainer);
 
       // Add Title and Banner to Header (Geo or img)
-      blogPostHeaderContainer.appendChild(blogPostmedia);
       blogPostHeaderContainer.appendChild(blogPostHeader);
 
       // add Header and Content to BlogPost
+
       blogPost.appendChild(blogPostHeaderContainer);
       blogPost.appendChild(blogPostText);
 
       // add BlogPost and its Meta to BlogPostContainer
       blogPostContainer.appendChild(metaContainer);
+      blogPostContainer.appendChild(blogPostimg);
       blogPostContainer.appendChild(blogPost);
 
       // add BlogPostContainer to the bloggingContauner
