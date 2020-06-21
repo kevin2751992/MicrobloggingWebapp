@@ -1,6 +1,7 @@
 
 import fetch from 'node-fetch';
 import { BlogPosts } from './js/blogPosts';
+import { Pagination } from './js/pagination';
 
 window.onload = init;
 
@@ -9,6 +10,9 @@ function init () {
   // #document has its nodes
   const blogEntriy = new BlogPosts();
   blogEntriy.createBlogPosts();
+  const pagination = new Pagination(blogEntriy.blogPostsArray.length);
+  pagination.createPagination();
+
   // Add Eventlistener here
   document.addEventListener('DOMContentLoaded', function (event) {
   // the event occurred

@@ -63,7 +63,7 @@ html {
   background-color: dodgerblue;
   color: white;
 }
-.boggify .main .bloggingContainer {
+.boggify .main .mainContainer {
   box-sizing: border-box;
   padding: 20px;
   float: left;
@@ -71,39 +71,39 @@ html {
   margin-left: 10%;
   border: solid;
 }
-.boggify .main .bloggingContainer .blogPostContainer {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer {
   background-color: white;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .metaContainer {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer {
   display: inline-flex;
   padding: 5px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .metaContainer .avatar {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .avatar {
   height: 64px;
   width: 64px;
   border-radius: 5px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
   padding: 13px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .blogPostmedia {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPostmedia {
   height: auto;
   width: 100%;
 }
-.boggify .main .bloggingContainer .blogPostContainer .blogPost {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost {
   padding: 10px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 16px;
 }
-.boggify .main .bloggingContainer .blogPostContainer .blogPost .blogPostText {
+.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
   font-size: 16px;
 }
 .boggify .main .aside-right {
@@ -119,9 +119,32 @@ html {
   border: solid;
 }
 .boggify .main .aside-right .adContainer {
-  height: 400px;
-  background-color: #176094;
-  border: solid;
+  padding: 20px;
+}
+.boggify .main .aside-right .adContainer .headerContainer {
+  width: 300px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: auto;
+  box-sizing: border-box;
+}
+.boggify .main .aside-right .adContainer .headerContainer h3 {
+  font-size: 21px;
+  color: #003a6e;
+  margin: 0px;
+}
+.boggify .main .aside-right .adContainer .bottom-border {
+  border-bottom: solid;
+  border-width: 2px;
+  border-color: #4a77a2;
+}
+.boggify .main .aside-right .adContainer img {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  margin: auto;
 }
 /* Style the header links */
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */

@@ -6,6 +6,8 @@
 @blue: #004882;
 @lite-blue: #0074BD;
 
+@XLFontSize:16px;
+
 //Basic Layout
 html{
   background-color:@mainthemeBlue
@@ -86,17 +88,21 @@ html{
   }
   .main{
 
-    .bloggingContainer{
+    .mainContainer{
       box-sizing: border-box;
       padding: 20px;
       float: left;
       width: 40%;
-      margin-left:10%;
-      border:solid;
+      margin-left: 10%;
+      border: solid;
 
-      @import "./blogPost.less";
-
+      .bloggingContainer{
+       
+  
+        @import "./blogPost.less";
+      }
     }
+
     .aside-right{
       box-sizing: border-box;
         width: 40%;
@@ -112,9 +118,40 @@ html{
         
       }
       .adContainer{
-        height: 400px;
-        background-color: #176094;
-        border: solid;
+       
+        padding: 20px;
+        .headerContainer{
+
+          width: 300px;
+          background-color: #ffffff;
+          padding: 10px;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          margin: auto;
+          box-sizing: border-box;
+          h3{
+            font-size:21px;
+            color: @mainthemeBlue;
+            margin:0px
+          }
+
+        }
+
+       
+
+        .bottom-border{
+          border-bottom: solid;
+          border-width: 2px;
+          border-color: #4a77a2;
+
+        }
+       
+        img{
+          height: 300px;
+          width: 300px;
+          display: flex;
+          margin: auto;
+        }
       }
     }
     

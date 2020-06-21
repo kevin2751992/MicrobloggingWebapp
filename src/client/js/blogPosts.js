@@ -67,7 +67,6 @@ export class BlogPosts {
       blogPostHeaderContainer.appendChild(blogPostHeader);
 
       // add Header and Content to BlogPost
-
       blogPost.appendChild(blogPostHeaderContainer);
       blogPost.appendChild(blogPostText);
 
