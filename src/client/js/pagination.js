@@ -12,6 +12,7 @@ export class Pagination {
     const paginationContainer = document.getElementById('paginationContainer');
     const indexContainer = document.createElement('div');
     indexContainer.className = 'indexContainer';
+    indexContainer.setAttribute('id', 'indexContainer');
 
     // add here pagination for 100+ blogentries
     for (let i = 1; i <= maxPageNumber; i++) {
@@ -28,6 +29,8 @@ export class Pagination {
 
   nextPage () {
     this.index++;
+    const paginationlinks = document.getElementById('indexContainer').children;
+    console.log("links",paginationlinks);
   }
 
   prevPage () {
