@@ -29,12 +29,14 @@ export class BlogPosts {
       // Create BlogPostTitle and add it to HeaderContainer
       const blogPostHeader = document.createElement('h2');
       blogPostHeader.className = 'blogPostHeader';
+      blogPostHeader.innerHTML = item.content.title;
 
       const blogPostmedia = document.createElement('img');
       blogPostmedia.className = 'blogPostmedia';
 
       const blogPostText = document.createElement('p');
       blogPostText.className = 'blogPostText';
+      blogPostText.innerHTML = item.content.text;
 
       // Create BlogPost MetaContainer (Avatar, Author, Created )
       const metaContainer = document.createElement('div');
@@ -42,9 +44,12 @@ export class BlogPosts {
 
       const avatar = document.createElement('img');
       avatar.className = 'avatar';
+      avatar.src = item.author.avatarUrl;
 
       const authorLabel = document.createElement('p');
+      authorLabel.innerHTML = item.author.name;
       const createdLabel = document.createElement('p');
+      createdLabel.innerHTML = item.meta.created;
       authorLabel.className = 'label';
       createdLabel.className = 'label';
 

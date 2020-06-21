@@ -1,9 +1,17 @@
 import fetch from 'node-fetch';
 const moment = require('moment');
+
+class Author {
+  constructor (name, avatarUrl) {
+    this.name = name;
+    this.avatarUrl = avatarUrl;
+  }
+}
 class BlogPost {
-  constructor ({ title, text, img }, { author, created }) {
+  constructor ({ title, text, img }, { created }, { name, avatarUrl }) {
     this.content = { title: title, text: text, img: img };
-    this.meta = { author: author, created: created };
+    this.author = new Author(name, avatarUrl);
+    this.meta = { created: created };
   }
 }
 export class Blogservice {
@@ -22,7 +30,8 @@ export class Blogservice {
           text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
           img: ''
         },
-        { autor: 'Kevin Meßmer', created: moment(Date.now()).format('DDMMYYYY') }
+        { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, h:mm:ss ')).fromNow() },
+        { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' }
       );
       this.blogPosts[i] = staticBlogPost;
     }
