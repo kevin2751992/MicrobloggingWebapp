@@ -11,14 +11,14 @@
     "debug": "npm run lint && npm run bundle-js && npm run lessTocss && cp ./src/client/index.html ./dist/index.html",
     "bundle-js": "browserify ./src/client/main.js  -o ./dist/bundle.js",
     "lessTocss": "lessc ./src/client/styles/main.less ./dist/main.css",
-    "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html && cp -rf ./src/client/assets ./dist" ,
+    "build": "npm run lint && npm run bundle-js && npm run jsMin && npm run lessTocss && cp ./src/client/index.html ./dist/index.html && cp -rf ./src/client/assets ./dist",
     "jsMin": "uglifyjs ./dist/bundle.js --compress --mangle --warn --output ./dist/bundle.js ",
     "watchDev": "nodemon --watch src --exec npm run serve",
     "serve": "npm run build && npm run start"
   },
   "dependencies": {
     "babel": "^6.23.0",
-    "eslint-config-standard": "^14.1.1", 
+    "eslint-config-standard": "^14.1.1",
     "express": "^4.17.1",
     "less": "^3.11.1",
     "minify": "^5.1.1",

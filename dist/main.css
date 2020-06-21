@@ -71,40 +71,67 @@ html {
   margin-left: 10%;
   border: solid;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer {
   background-color: white;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer {
   display: inline-flex;
   padding: 5px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .avatar {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .avatar {
   height: 64px;
   width: 64px;
   border-radius: 5px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer {
   padding: 13px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPostmedia {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPostmedia {
   height: auto;
   width: 100%;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost {
   padding: 10px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 16px;
 }
-.boggify .main .mainContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
   font-size: 16px;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  background-color: white;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer {
+  margin: auto;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a.active {
+  background-color: #008fff;
+  color: white;
+  border-radius: 5px;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a:hover:not(.active) {
+  background-color: #ddd;
 }
 .boggify .main .aside-right {
   box-sizing: border-box;

@@ -23,7 +23,6 @@ html{
     border-bottom: solid;
     border-width: 4px;
     border-color: #404244;
-   
 
       .linkContainer {
         width: 100%;
@@ -68,23 +67,17 @@ html{
           border-radius: 4px; 
           height:100%;
         }
-    
         a:hover {
           background-color: #003a71e0;
           color: black;
         }
-        
         /* Style the active/current link*/
         a.active {
           background-color: @mainThemeLightBlue;
           color: white;
         }
-       
      }
-     
-
     }
-  
   }
   .main{
 
@@ -95,12 +88,17 @@ html{
       width: 40%;
       margin-left: 10%;
       border: solid;
+      
+      .mainleftContainer{
 
-      .bloggingContainer{
-       
-  
-        @import "./blogPost.less";
+        .bloggingContainer{
+          @import "./blogPost.less";
+        }
+        @import "./pagination.less";
+
       }
+
+      
     }
 
     .aside-right{
