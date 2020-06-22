@@ -30,7 +30,7 @@ export class Pagination {
   nextPage () {
     this.index++;
     const paginationlinks = document.getElementById('indexContainer').children;
-    console.log("links",paginationlinks);
+    console.log('links', paginationlinks);
   }
 
   prevPage () {
