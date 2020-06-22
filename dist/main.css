@@ -33,6 +33,21 @@ html {
   float: right;
   /* Style the active/current link*/
 }
+.boggify .header .linkContainer .header-right button {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  height: 100%;
+}
+.boggify .header .linkContainer .header-right .active {
+  background-color: dodgerblue;
+  color: white;
+}
 .boggify .header .linkContainer .header-right a {
   float: left;
   color: black;
@@ -66,6 +81,25 @@ html {
 .boggify .header .linkContainer .header-right a.active {
   background-color: dodgerblue;
   color: white;
+}
+.boggify .main .modal {
+  display: block !important;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #000000;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 .boggify .main .mainContainer {
   box-sizing: border-box;
@@ -102,6 +136,11 @@ html {
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer .label {
+  color: black;
+  display: flex;
+  font-size: 14px;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPostmedia {
   height: auto;

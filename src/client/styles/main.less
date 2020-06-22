@@ -18,6 +18,7 @@ html{
 .boggify{
   box-sizing: border-box;
 
+
   .header {
     overflow: hidden;
     background-color:@mainThemeWhite;
@@ -42,6 +43,23 @@ html{
 
         .header-right {
           float: right;
+          button{
+
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 25px;
+            border-radius: 4px; 
+            height:100%;
+
+          }
+          .active {
+            background-color: @mainThemeLightBlue;
+            color: white;
+          }
 
           a {
             float: left;
@@ -83,7 +101,7 @@ html{
     }
   }
   .main{
-
+    @import "./modal.less";
     .mainContainer{
       box-sizing: border-box;
       padding: 20px;
