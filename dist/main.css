@@ -134,6 +134,9 @@ html {
   padding: 10px;
   border-radius: 5px;
 }
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .disabled {
+  color: red;
+}
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .glyphicon-menu-right:hover {
   background-color: #ddd;
 }
