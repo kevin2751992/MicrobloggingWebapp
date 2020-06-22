@@ -17,7 +17,7 @@ export class BlogPosts {
       // Create BlogPostDiv and add its css class to it
       const blogPostContainer = document.createElement('div');
       blogPostContainer.className = 'blogPostContainer';
-      if (index > 9) {
+      if (index > 10) {
         blogPostContainer.classList.add('hidden');
       } else {
         blogPostContainer.classList.add('show');
