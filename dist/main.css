@@ -1,3 +1,7 @@
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+* {
+  box-sizing: border-box;
+}
 html {
   background-color: #003a6e;
 }
@@ -117,6 +121,24 @@ html {
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer {
   margin: auto;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .glyphicon-menu-left {
+  float: left;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .glyphicon-menu-right {
+  float: right;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .glyphicon-menu-right:hover {
+  background-color: #ddd;
+}
+.boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer .glyphicon-menu-left:hover {
+  background-color: #ddd;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a {
   color: black;

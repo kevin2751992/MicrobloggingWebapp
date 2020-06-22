@@ -13,6 +13,9 @@ export class Pagination {
     const indexContainer = document.createElement('div');
     indexContainer.className = 'indexContainer';
     indexContainer.setAttribute('id', 'indexContainer');
+    const prevpage = document.createElement('span');
+    prevpage.className = 'glyphicon glyphicon-menu-left';
+    indexContainer.appendChild(prevpage);
 
     // add here pagination for 100+ blogentries
     for (let i = 1; i <= maxPageNumber; i++) {
@@ -24,6 +27,9 @@ export class Pagination {
       }
       indexContainer.appendChild(paginationlink);
     }
+    const nextpage = document.createElement('span');
+    nextpage.className = 'glyphicon glyphicon-menu-right';
+    indexContainer.appendChild(nextpage);
     paginationContainer.appendChild(indexContainer);
   }
 
