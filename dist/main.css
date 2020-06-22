@@ -81,6 +81,12 @@ html {
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .hidden {
+  display: none;
+}
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .show {
+  display: block;
+}
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer {
   display: inline-flex;
   padding: 5px;

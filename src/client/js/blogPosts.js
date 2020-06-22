@@ -13,15 +13,19 @@ export class BlogPosts {
     // get BlogPostContainer from document by its id
     const bloggingContainer = document.getElementById('bloggingContainer');
     // Create for each BlogPost a BlogPostElement and append it to the container
-    this.blogPostsArray.forEach(item => {
+    this.blogPostsArray.forEach((item, index) => {
       // Create BlogPostDiv and add its css class to it
       const blogPostContainer = document.createElement('div');
       blogPostContainer.className = 'blogPostContainer';
+      if (index > 9) {
+        blogPostContainer.classList.add('hidden');
+      } else {
+        blogPostContainer.classList.add('show');
+      }
 
       // Create BlogPostElement (Container fot the blogPost)
       const blogPost = document.createElement('div');
       blogPost.className = 'blogPost';
-
       // Create HeadeContainer (Holds Header and Banner/MainImg/Geostatus)
       const blogPostHeaderContainer = document.createElement('div');
       blogPostHeaderContainer.className = 'blogPostHeaderContainer';
