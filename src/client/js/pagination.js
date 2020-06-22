@@ -59,6 +59,17 @@ export class Pagination {
 
         // get prev index and set it active
         this.index--;
+
+        const startshow = ((this.index - 1) * 10) + 1;
+        let endshow = startshow + 9;
+        const starthidden = ((this.index) * 10) + 1;
+        const endhidden = starthidden + 9;
+
+        if (endshow > this.blogposts.length) {
+          endshow = this.blogposts.length;
+        }
+        this.updateBlogPost(starthidden, endhidden, startshow, endshow);
+
         console.log('prev Index', this.index);
         console.log('prev IndexElemnt', currentIndex);
         const nextIndex = paginationlinks[this.index];

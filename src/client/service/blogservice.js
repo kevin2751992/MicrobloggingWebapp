@@ -24,7 +24,7 @@ export class Blogservice {
   }
 
   createTestData () {
-    for (let i = 1; i < 30; i++) {
+    for (let i = 1; i < 23; i++) {
       const staticBlogPost = new BlogPost(
         {
           title: 'TestTitle' + i,
