@@ -3,14 +3,52 @@
   box-sizing: border-box;
 }
 html {
-  background-color: #081c2d;
+  background-color: #032c4a;
+  color: #666;
+}
+html .radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+html .radio-item input[type='radio'] {
+  display: none;
+}
+html .radio-item label {
+  color: #666;
+  font-weight: normal;
+  font-size: 14px;
+}
+html .radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid #032c4a;
+  background-color: transparent;
+}
+html .radio-item input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: #032c4a;
 }
 .boggify {
   box-sizing: border-box;
 }
 .boggify button {
   float: left;
-  color: black;
+  color: #666;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -19,7 +57,13 @@ html {
   border-radius: 4px;
   height: 100%;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
+}
+.boggify .radioButton {
+  font-size: 35px;
+  size: 32px;
+  height: 25px;
+  width: 25px;
 }
 .boggify .active {
   background-color: #032c4a;
@@ -29,7 +73,7 @@ html {
   overflow: hidden;
   background-color: #ffffff;
   padding: 5px 10px;
-  color: black;
+  color: #666;
   border-bottom: solid;
   border-width: 4px;
   border-color: #404244;
@@ -52,7 +96,7 @@ html {
 }
 .boggify .header .linkContainer .header-right a {
   float: left;
-  color: black;
+  color: #666;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -67,7 +111,7 @@ html {
 }
 .boggify .header .linkContainer .header-right a {
   float: left;
-  color: black;
+  color: #666;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -77,8 +121,8 @@ html {
   height: 100%;
 }
 .boggify .header .linkContainer .header-right a:hover {
-  background-color: #032c4a;
-  color: black;
+  background-color: #ddd;
+  color: #666;
 }
 .boggify .header .linkContainer .header-right a.active {
   background-color: #032c4a;
@@ -101,7 +145,7 @@ html {
   background-color: #000000;
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
+  /* @mainFontColor w/ opacity */
 }
 .boggify .main .modal .modalContainer {
   position: relative;
@@ -111,7 +155,7 @@ html {
   width: 40%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 10px;
 }
 .boggify .main .modal .modalContainer .modalHeader {
@@ -119,7 +163,7 @@ html {
   display: flex;
   border-bottom: solid;
   border-width: 1px;
-  color: #80808036;
+  color: #032c4a;
   padding-bottom: 10px;
   padding-right: 10px;
 }
@@ -140,7 +184,7 @@ html {
   color: #ffffff;
   position: relative;
   top: -6px;
-  left: -4px;
+  left: -5px;
 }
 .boggify .main .modal .modalContainer .modalHeader .header-left img {
   width: 64px;
@@ -151,7 +195,7 @@ html {
 .boggify .main .modal .modalContainer .modalHeader .header-left p {
   padding: 16px;
   font-size: 16px;
-  color: black;
+  color: #666;
   float: left;
 }
 .boggify .main .modal .modalContainer .modalHeader .header-right {
@@ -179,7 +223,7 @@ html {
   display: flex;
   border-top: solid;
   border-width: 1px;
-  color: #80808036;
+  color: #032c4a;
   padding-bottom: 10px;
 }
 .boggify .main .modal .modalContainer .modalFooter button {
@@ -194,15 +238,15 @@ html {
   margin-right: 20px;
 }
 .boggify .main .modal .modalContainer .modalFooter button border:none button:hover {
-  background-color: #003a71e0;
-  color: black;
+  background-color: #ddd;
+  color: #666;
 }
 .boggify .main .show {
   display: block;
 }
 .boggify .main .active {
   background-color: #032c4a;
-  color: white;
+  color: #ffffff;
 }
 .boggify .main .mainContainer {
   box-sizing: border-box;
@@ -240,7 +284,7 @@ html {
   margin-bottom: 0px;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .metaContainer .metaHeaderContainer .label {
-  color: black;
+  color: #032c4a;
   display: flex;
   font-size: 14px;
 }
@@ -253,9 +297,11 @@ html {
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 16px;
+  color: #666;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
   font-size: 16px;
+  color: #666;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer {
   display: inline-block;
@@ -264,7 +310,7 @@ html {
   border-radius: 5px;
   box-sizing: border-box;
   display: flex;
-  background-color: white;
+  background-color: #ffffff;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer {
   margin: auto;
@@ -291,7 +337,7 @@ html {
   background-color: #ddd;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a {
-  color: black;
+  color: #666;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
@@ -299,7 +345,7 @@ html {
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a.active {
   background-color: #032c4a;
-  color: white;
+  color: #ffffff;
   border-radius: 5px;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a:hover:not(.active) {
@@ -329,7 +375,7 @@ html {
 }
 .boggify .main .aside-right .adContainer .headerContainer h3 {
   font-size: 21px;
-  color: #081c2d;
+  color: #032c4a;
   margin: 0px;
 }
 .boggify .main .aside-right .adContainer .bottom-border {

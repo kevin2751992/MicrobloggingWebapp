@@ -1,26 +1,75 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 //Themes
-@mainthemeBlue: #081c2d;
+@mainThemeDarkBlue: #081c2d;
 @mainThemeWhite:#ffffff;
-@mainThemeLightBlue:#032c4a;
+@mainThemeDarkBlue:#032c4a;
+@mainThemeButton:#032c4a;
+@mainHoverColor:#ddd;
 @blue: #004882;
+@mainFontColor:#666;
 @lite-blue: #0074BD;
 
 @XLFontSize:16px;
+@FontSize:14px;
+@smallFontSize:12px;
 
 //Basic Layout
 *{
   box-sizing: border-box;
 }
 html{
-  background-color:@mainthemeBlue
+  background-color:@mainThemeDarkBlue;
+  color:@mainFontColor;
+
+  //Custom CSS for RadioButtons via Pseudoclasses
+  .radio-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 10px 0 0;
+  }
+  //hide the std radioButtons in container
+  .radio-item input[type='radio'] {
+    display: none;
+  }
+  
+  .radio-item label {
+    color: #666;
+    font-weight: normal;
+    font-size:@FontSize
+  }
+  
+  .radio-item label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 11px;
+    border: 2px solid @mainThemeDarkBlue;
+    background-color: transparent;
+  }
+  
+  .radio-item input[type=radio]:checked + label:after {
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    content: " ";
+    display: block;
+    background: @mainThemeDarkBlue;
+  }
 }
 .boggify{
   box-sizing: border-box;
   button{
 
     float: left;
-    color: black;
+    color: @mainFontColor;
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -29,11 +78,18 @@ html{
     border-radius: 4px; 
     height:100%;
     border:none;
-    font-size:16px
+    font-size:@FontSize
+
+  }
+  .radioButton{
+    font-size: 35px;
+    size: 32px;
+    height: 25px;
+    width: 25px;
 
   }
   .active {
-    background-color: @mainThemeLightBlue;
+    background-color: @mainThemeDarkBlue;
     color:@mainThemeWhite;
   }
 
@@ -43,7 +99,7 @@ html{
     overflow: hidden;
     background-color:@mainThemeWhite;
     padding: 5px 10px;
-    color: black;
+    color: @mainFontColor;
     border-bottom: solid;
     border-width: 4px;
     border-color: #404244;
@@ -67,7 +123,7 @@ html{
 
           a {
             float: left;
-            color: black;
+            color:@mainFontColor;
             text-align: center;
             padding: 12px;
             text-decoration: none;
@@ -77,13 +133,13 @@ html{
             height:100%;
 
             .active {
-              background-color: @mainThemeLightBlue;
+              background-color: @mainThemeDarkBlue;
               color: @mainThemeWhite;
             }
         }
         a {
           float: left;
-          color: black;
+          color: @mainFontColor;
           text-align: center;
           padding: 12px;
           text-decoration: none;
@@ -93,12 +149,12 @@ html{
           height:100%;
         }
         a:hover {
-          background-color: @mainThemeLightBlue;
-          color: black;
+          background-color: @mainHoverColor;
+          color: @mainFontColor;
         }
         /* Style the active/current link*/
         a.active {
-          background-color: @mainThemeLightBlue;
+          background-color: @mainThemeDarkBlue;
           color: @mainThemeWhite;
         }
      }
@@ -154,7 +210,7 @@ html{
           box-sizing: border-box;
           h3{
             font-size:21px;
-            color: @mainthemeBlue;
+            color: @mainThemeDarkBlue;
             margin:0px
           }
 
@@ -181,6 +237,8 @@ html{
  
   }
 }
+
+
 
   /* Style the header links */
   

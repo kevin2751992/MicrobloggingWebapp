@@ -6,7 +6,7 @@
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
-    background-color: white;
+    background-color: @mainThemeWhite;
 
     .indexContainer{
         margin:auto;
@@ -26,26 +26,26 @@
             color:red
         }
         .glyphicon-menu-right:hover{
-            background-color: #ddd;
+            background-color: @mainHoverColor;
         }
         .glyphicon-menu-left:hover{
-            background-color: #ddd;
+            background-color: @mainHoverColor;
         }
 
         a {
-            color: black;
+            color: @mainFontColor;
             float: left;
             padding: 8px 16px;
             text-decoration: none;
             border-radius: 5px;
         }
         a.active {
-            background-color: @mainThemeLightBlue;
-            color: white;
+            background-color: @mainThemeDarkBlue;
+            color: @mainThemeWhite;
             border-radius: 5px;
           }
          a:hover:not(.active) {
-             background-color: #ddd;
+             background-color: @mainHoverColor;
             }
 
     }
