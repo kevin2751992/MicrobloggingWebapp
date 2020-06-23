@@ -184,7 +184,7 @@ html .radio-item input[type=radio]:checked + label:after {
   color: #ffffff;
   position: relative;
   top: -6px;
-  left: -5px;
+  left: -4px;
 }
 .boggify .main .modal .modalContainer .modalHeader .header-left img {
   width: 64px;

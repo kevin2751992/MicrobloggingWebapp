@@ -18,10 +18,10 @@ class BlogPost {
 export class Blogservice {
   constructor () {
     this.blogPosts = [];
-    this.createTestData();
+
+    // this.createTestData();
     this.apiEndpoint = 'http://localhost:8080/getBlogEntries';
-    this.getBlogPosts();
-    console.log('static Data', this.blogPosts);
+    // this.getBlogPosts();
   }
 
   createTestData () {
@@ -40,7 +40,7 @@ export class Blogservice {
   }
 
   getBlogPosts () {
-    fetch('http://localhost:8080/getBlogPosts', {
+    return fetch('http://localhost:8080/getBlogPosts', {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -53,6 +53,29 @@ export class Blogservice {
       referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     })
       .then(response => response.json())
-      .then(data => console.log((data)));
+      .then(data => {
+        console.log('data', data);
+        return new Promise((resolve, reject) => {
+          const promise = data.map(blogPost => {
+            console.log('post', blogPost);
+
+            const mapedPost = new BlogPost(
+
+              {
+                title: blogPost.content.title,
+                text: blogPost.content.text,
+                img: blogPost.content.img
+              },
+              { created: moment(blogPost.meta.created).format('DD.MM.YYYY, h:mm:ss ') },
+              { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl }
+
+            );
+            console.log('maped', mapedPost);
+            return (mapedPost);
+          });
+          console.log('promise', promise);
+          resolve(promise);
+        });
+      });
   }
 }

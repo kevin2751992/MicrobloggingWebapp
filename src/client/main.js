@@ -3,16 +3,20 @@
 import { BlogPosts } from './components/blogPosts';
 import { Pagination } from './components/pagination';
 import { Modal } from './components/modal';
+import { Blogservice } from './service/blogservice';
 
 window.onload = init;
 
 function init () {
   // the code to be called when the dom has loaded
   // #document has its nodes
-  const blogPosts = new BlogPosts();
-  blogPosts.createBlogPosts();
-  const pagination = new Pagination(blogPosts.blogPostsArray.length);
-  pagination.createPagination();
+  const blogservice = new Blogservice();
+  blogservice.getBlogPosts().then(promisedBlogPosts => {
+    const blogPosts = new BlogPosts(promisedBlogPosts);
+    blogPosts.createBlogPosts();
+    const pagination = new Pagination(blogPosts.blogPostsArray.length);
+    pagination.createPagination();
+  });
 
   document.getElementById('createButton').addEventListener('click', openModal);
 }

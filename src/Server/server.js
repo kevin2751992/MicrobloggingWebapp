@@ -18,12 +18,17 @@ server.get('/', function (req, res) {
 
 server.get('/getBlogPosts', function (req, res) {
   console.log('return BlogPosts');
-  const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.json');
-  const blogPost = fs.readFileSync(DataBase, { encoding: 'utf8' });
-  console.log('data', blogPost);
-  console.log('respone', (blogPost));
+  let blogPosts;
+  try {
+    const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.json');
+    blogPosts = fs.readFileSync(DataBase, { encoding: 'utf8' });
+  } catch (error) {
+    res.status('500').send('Error while Reading JSONFile:', error);
+  }
 
-  res.send((blogPost));
+  console.log('respone', (blogPosts));
+
+  res.status('200').send((blogPosts));
 });
 
 // route SERVER post

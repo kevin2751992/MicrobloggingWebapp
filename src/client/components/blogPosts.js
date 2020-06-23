@@ -1,10 +1,9 @@
-import { Blogservice } from '../service/blogservice';
+
 // import { Modal } from './components/Modal';
 
 export class BlogPosts {
-  constructor () {
-    const blogservice = new Blogservice();
-    this.blogPostsArray = blogservice.blogPosts;
+  constructor (blogPosts) {
+    this.blogPostsArray = blogPosts;
     console.log('TestData', this.blogPostsArray);
   }
 
