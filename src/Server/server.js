@@ -18,13 +18,8 @@ server.get('/', function (req, res) {
 
 server.get('/getBlogPosts', function (req, res) {
   console.log('return BlogPosts');
-  const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.txt');
+  const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.json');
   const blogPost = fs.readFileSync(DataBase, { encoding: 'utf8' });
-  blogPost.split(/\r?\n/).reduce(function (m, i) {
-    var s = i.split(':');
-    m[s.shift()] = s.join(':');
-    return m;
-  }, {});
   console.log('data', blogPost);
   console.log('respone', (blogPost));
 

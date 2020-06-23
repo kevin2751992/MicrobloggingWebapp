@@ -8,6 +8,23 @@ html {
 .boggify {
   box-sizing: border-box;
 }
+.boggify button {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+}
+.boggify .active {
+  background-color: #032c4a;
+  color: #ffffff;
+}
 .boggify .header {
   overflow: hidden;
   background-color: #ffffff;
@@ -32,21 +49,6 @@ html {
 .boggify .header .linkContainer .header-right {
   float: right;
   /* Style the active/current link*/
-}
-.boggify .header .linkContainer .header-right button {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-  height: 100%;
-}
-.boggify .header .linkContainer .header-right .active {
-  background-color: #032c4a;
-  color: #ffffff;
 }
 .boggify .header .linkContainer .header-right a {
   float: left;
@@ -128,12 +130,17 @@ html {
 .boggify .main .modal .modalContainer .modalHeader .header-left .closeButton {
   float: right;
   background-color: #032c4a;
-  border-radius: 2px;
+  border-radius: 4px;
   border: none;
-  margin-top: 5px;
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
 }
 .boggify .main .modal .modalContainer .modalHeader .header-left .closeButton .glyphicon {
   color: #ffffff;
+  position: relative;
+  top: -6px;
+  left: -4px;
 }
 .boggify .main .modal .modalContainer .modalHeader .header-left img {
   width: 64px;
