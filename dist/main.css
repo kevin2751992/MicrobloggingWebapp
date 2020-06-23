@@ -119,16 +119,36 @@ html {
   border-width: 1px;
   color: #80808036;
   padding-bottom: 10px;
+  padding-right: 10px;
 }
-.boggify .main .modal .modalContainer .modalHeader img {
+.boggify .main .modal .modalContainer .modalHeader .header-left {
+  display: inline;
+  width: 100%;
+}
+.boggify .main .modal .modalContainer .modalHeader .header-left .closeButton {
+  float: right;
+  background-color: #032c4a;
+  border-radius: 2px;
+  border: none;
+  margin-top: 5px;
+}
+.boggify .main .modal .modalContainer .modalHeader .header-left .closeButton .glyphicon {
+  color: #ffffff;
+}
+.boggify .main .modal .modalContainer .modalHeader .header-left img {
   width: 64px;
   height: 64px;
   border-radius: 5px;
+  float: left;
 }
-.boggify .main .modal .modalContainer .modalHeader p {
+.boggify .main .modal .modalContainer .modalHeader .header-left p {
   padding: 16px;
   font-size: 16px;
   color: black;
+  float: left;
+}
+.boggify .main .modal .modalContainer .modalHeader .header-right {
+  float: right;
 }
 .boggify .main .modal .modalContainer .modalContentContainer {
   padding: 10px;
@@ -183,7 +203,6 @@ html {
   float: left;
   width: 40%;
   margin-left: 10%;
-  border: solid;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer {
   background-color: white;
@@ -284,12 +303,10 @@ html {
   width: 40%;
   float: right;
   padding: 20px;
-  border: solid;
 }
 .boggify .main .aside-right .highlightContainer {
   height: 400px;
   background-color: #176094;
-  border: solid;
 }
 .boggify .main .aside-right .adContainer {
   padding: 20px;

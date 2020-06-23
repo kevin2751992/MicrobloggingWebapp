@@ -9,17 +9,12 @@ window.onload = init;
 function init () {
   // the code to be called when the dom has loaded
   // #document has its nodes
-  const blogEntriy = new BlogPosts();
-  blogEntriy.createBlogPosts();
-  const pagination = new Pagination(blogEntriy.blogPostsArray.length);
+  const blogPosts = new BlogPosts();
+  blogPosts.createBlogPosts();
+  const pagination = new Pagination(blogPosts.blogPostsArray.length);
   pagination.createPagination();
 
-  // Add Eventlistener here
-  document.addEventListener('click', (event) => {
-  // the event occurred
-
-    document.getElementById('createButton').addEventListener('click', openModal);
-  });
+  document.getElementById('createButton').addEventListener('click', openModal);
 }
 function openModal () {
   const modal = new Modal();

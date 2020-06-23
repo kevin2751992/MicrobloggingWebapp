@@ -20,6 +20,7 @@ export class Blogservice {
     this.blogPosts = [];
     this.createTestData();
     this.apiEndpoint = 'http://localhost:8080/getBlogEntries';
+    this.getBlogPosts();
     console.log('static Data', this.blogPosts);
   }
 
@@ -38,8 +39,8 @@ export class Blogservice {
     }
   }
 
-  getBlogEntries () {
-    fetch('http://localhost:8080/getBlogentries', {
+  getBlogPosts () {
+    fetch('http://localhost:8080/getBlogPosts', {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -52,6 +53,6 @@ export class Blogservice {
       referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => console.log(JSON.parse(data)));
   }
 }

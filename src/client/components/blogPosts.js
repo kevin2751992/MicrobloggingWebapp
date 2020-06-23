@@ -84,5 +84,3 @@ export class BlogPosts {
     });
   }
 }
-const blogservice = new Blogservice();
-console.log('TestData:', blogservice.testData);

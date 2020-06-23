@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 const fs = require('fs');
 const path = require('path');
+
 const INDEX = path.join(process.cwd(), '/dist/index.html');
 
 let port = 8080;
@@ -14,6 +15,21 @@ if ((process.argv[2]) && (process.argv[2] > 0)) {
 server.get('/', function (req, res) {
   res.sendFile(INDEX);
 }).use(express.static(path.join(process.cwd(), '/dist/')));
+
+server.get('/getBlogPosts', function (req, res) {
+  console.log('return BlogPosts');
+  const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.txt');
+  const blogPost = fs.readFileSync(DataBase, { encoding: 'utf8' });
+  blogPost.split(/\r?\n/).reduce(function (m, i) {
+    var s = i.split(':');
+    m[s.shift()] = s.join(':');
+    return m;
+  }, {});
+  console.log('data', blogPost);
+  console.log('respone', (blogPost));
+
+  res.send((blogPost));
+});
 
 // route SERVER post
 server.post('/newBlogEntry', (req, res) => {
