@@ -1,8 +1,8 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 //Themes
-@mainthemeBlue: #003a6e;
+@mainthemeBlue: #081c2d;
 @mainThemeWhite:#ffffff;
-@mainThemeLightBlue:dodgerblue;
+@mainThemeLightBlue:#032c4a;
 @blue: #004882;
 @lite-blue: #0074BD;
 
@@ -58,7 +58,7 @@ html{
           }
           .active {
             background-color: @mainThemeLightBlue;
-            color: white;
+            color:@mainThemeWhite;
           }
 
           a {
@@ -74,7 +74,7 @@ html{
 
             .active {
               background-color: @mainThemeLightBlue;
-              color: white;
+              color: @mainThemeWhite;
             }
         }
         a {
@@ -89,13 +89,13 @@ html{
           height:100%;
         }
         a:hover {
-          background-color: #003a71e0;
+          background-color: @mainThemeLightBlue;
           color: black;
         }
         /* Style the active/current link*/
         a.active {
           background-color: @mainThemeLightBlue;
-          color: white;
+          color: @mainThemeWhite;
         }
      }
     }
@@ -142,7 +142,7 @@ html{
         .headerContainer{
 
           width: 300px;
-          background-color: #ffffff;
+          background-color:@mainThemeWhite;
           padding: 10px;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;

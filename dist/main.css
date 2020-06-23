@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 html {
-  background-color: #003a6e;
+  background-color: #081c2d;
 }
 .boggify {
   box-sizing: border-box;
@@ -45,8 +45,8 @@ html {
   height: 100%;
 }
 .boggify .header .linkContainer .header-right .active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: #032c4a;
+  color: #ffffff;
 }
 .boggify .header .linkContainer .header-right a {
   float: left;
@@ -60,8 +60,8 @@ html {
   height: 100%;
 }
 .boggify .header .linkContainer .header-right a .active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: #032c4a;
+  color: #ffffff;
 }
 .boggify .header .linkContainer .header-right a {
   float: left;
@@ -75,12 +75,12 @@ html {
   height: 100%;
 }
 .boggify .header .linkContainer .header-right a:hover {
-  background-color: #003a71e0;
+  background-color: #032c4a;
   color: black;
 }
 .boggify .header .linkContainer .header-right a.active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: #032c4a;
+  color: #ffffff;
 }
 .boggify .main .modal {
   display: none ;
@@ -156,7 +156,7 @@ html {
   padding-bottom: 10px;
 }
 .boggify .main .modal .modalContainer .modalFooter button {
-  color: black;
+  color: #ffffff;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -166,7 +166,7 @@ html {
   height: 100%;
   margin-right: 20px;
 }
-.boggify .main .modal .modalContainer .modalFooter button button:hover {
+.boggify .main .modal .modalContainer .modalFooter button border:none button:hover {
   background-color: #003a71e0;
   color: black;
 }
@@ -174,7 +174,7 @@ html {
   display: block;
 }
 .boggify .main .active {
-  background-color: dodgerblue;
+  background-color: #032c4a;
   color: white;
 }
 .boggify .main .mainContainer {
@@ -272,7 +272,7 @@ html {
   border-radius: 5px;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer .indexContainer a.active {
-  background-color: #008fff;
+  background-color: #032c4a;
   color: white;
   border-radius: 5px;
 }
@@ -305,7 +305,7 @@ html {
 }
 .boggify .main .aside-right .adContainer .headerContainer h3 {
   font-size: 21px;
-  color: #003a6e;
+  color: #081c2d;
   margin: 0px;
 }
 .boggify .main .aside-right .adContainer .bottom-border {
