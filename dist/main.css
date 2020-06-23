@@ -83,7 +83,7 @@ html {
   color: white;
 }
 .boggify .main .modal {
-  display: block !important;
+  display: none ;
   position: fixed;
   /* Stay in place */
   z-index: 1;
@@ -100,6 +100,82 @@ html {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+}
+.boggify .main .modal .modalContainer {
+  position: relative;
+  top: 10%;
+  box-sizing: border-box;
+  margin: auto;
+  width: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+.boggify .main .modal .modalContainer .modalHeader {
+  padding-left: 10px;
+  display: flex;
+  border-bottom: solid;
+  border-width: 1px;
+  color: #80808036;
+  padding-bottom: 10px;
+}
+.boggify .main .modal .modalContainer .modalHeader img {
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+}
+.boggify .main .modal .modalContainer .modalHeader p {
+  padding: 16px;
+  font-size: 16px;
+  color: black;
+}
+.boggify .main .modal .modalContainer .modalContentContainer {
+  padding: 10px;
+}
+.boggify .main .modal .modalContainer .modalContentContainer .titleInput {
+  width: 100%;
+  display: flex;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+}
+.boggify .main .modal .modalContainer .modalContentContainer .contentInput {
+  width: 100%;
+  display: flex;
+  height: 250px;
+  padding: 10px;
+  border: none;
+}
+.boggify .main .modal .modalContainer .modalFooter {
+  padding: 10px;
+  display: flex;
+  border-top: solid;
+  border-width: 1px;
+  color: #80808036;
+  padding-bottom: 10px;
+}
+.boggify .main .modal .modalContainer .modalFooter button {
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 15px;
+  border-radius: 4px;
+  height: 100%;
+  margin-right: 20px;
+}
+.boggify .main .modal .modalContainer .modalFooter button button:hover {
+  background-color: #003a71e0;
+  color: black;
+}
+.boggify .main .show {
+  display: block;
+}
+.boggify .main .active {
+  background-color: dodgerblue;
+  color: white;
 }
 .boggify .main .mainContainer {
   box-sizing: border-box;
