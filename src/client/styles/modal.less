@@ -11,8 +11,9 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* @mainFontColor w/ opacity */
   .modalContainer{
-    position: relative;
+    position: absolute;
     top: 10%;
+    left: 30%;
     box-sizing: border-box;
     margin: auto;
     width: 40%;
@@ -79,6 +80,7 @@
     }
     .modalContentContainer{
       padding: 10px;
+      position: relative;
 
       .titleInput{
         width: 100%;
@@ -105,18 +107,26 @@
     border-width: 1px;
     color:@mainThemeDarkBlue;
     padding-bottom: 10px;
+    
+      .inputContainer{
+        padding-left:10px;
+      }
       button{
        
-        color: @mainThemeWhite;
+        color: #ffffff;
         text-align: center;
-        padding: 12px;
+        /* padding: 12px; */
         text-decoration: none;
         font-size: 16px;
         line-height: 15px;
         border-radius: 4px;
-        height: 100%;
-        margin-right: 20px;
-        border:none
+        /* height: 100%; */
+        /* margin: 50px; */
+        border: none;
+        position: absolute;
+        bottom: 10px;
+        /* left: 0; */
+        right: 10px;
         
         button:hover {
           background-color:@mainHoverColor;
@@ -124,10 +134,17 @@
         }
 
       }
+      .file-upload{
+        margin-top:10px;
+        display:none
+      }
     }
 
   }
 
+}
+.hide{
+  display:none;
 }
 .show{
   display: block;

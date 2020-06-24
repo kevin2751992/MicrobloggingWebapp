@@ -42,15 +42,23 @@
                         <textarea class="contentInput" maxlength="1024" type="text" value=" Your Content" id="contentInput"></textarea>
                     </div>
                     <div class="modalFooter">
-                        
-                        <div class="radio-item">
-                            <input type="radio" id="ritema" name="uploadRadio" value="img">
-                            <label for="ritema">Image</label>
-                        </div>
-                        
-                        <div class="radio-item">
-                            <input type="radio" id="ritemb" name="uploadRadio" value="geo">
-                            <label for="ritemb">GeoLocation</label>
+                       
+                        <div class="inputContainer">
+                            <label for="myfile"> Add to Post</label>
+                            <div class="radio-item">
+                                <input type="radio" id="ritema" name="uploadRadio" value="img">
+                                <label for="ritema">Image</label>
+                            </div>
+                            
+                            <div class="radio-item">
+                                <input type="radio" id="ritemb" name="uploadRadio" value="geo">
+                                <label for="ritemb">GeoLocation</label>
+                            </div>
+                            <form class="file-upload hide" action="/action_page.php">
+                                
+                                <input type="file" id="myfile" name="myfile"><br><br>
+                              </form>
+                              
                         </div>
                         <button id= post class="active"> post </button> 
                     </div>
