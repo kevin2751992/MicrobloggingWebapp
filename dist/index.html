@@ -30,15 +30,15 @@
                 <div class="modalContainer">
                     <div class="modalHeader">
                         <div class="header-left">
-                            <img  src="./assets/profile/kevinMeßmerPersona.jpg" class=avatar></img>
-                            <p class="userNameLabel">Kevin Meßmer</p>
+                            <img id="userImg" src="./assets/profile/kevinmessmer.jpg" class=avatar></img>
+                            <p id="user" class="userNameLabel">Kevin Meßmer</p>
                             <button class="closeButton"id=closeModal> 
                                 <span class="glyphicon glyphicon-remove"></span> 
                             </button>
                         </div>
                     </div>
                     <div class="modalContentContainer">
-                        <input class="titleInput" type="text" value="Title" name="" id="titleInput">
+                        <input id="blogtitle" class="titleInput" type="text" value="Title" name="" id="titleInput">
                         <textarea class="contentInput" maxlength="1024" type="text" value=" Your Content" id="contentInput"></textarea>
                     </div>
                     <div class="modalFooter">
@@ -54,9 +54,9 @@
                                 <input id ="radioGeo"type="radio" id="ritemb" name="uploadRadio" value="geo">
                                 <label for="ritemb">GeoLocation</label>
                             </div>
-                            <form id="fileUpload" class="file-upload hide" action="/action_page.php">
+                            <form id="imgInput" class="file-upload hide" action="/action_page.php">
                                 
-                                <input type="file" id="myfile" name="myfile">
+                                <input type="file" id="file" name="myfile">
                               </form>
                               
                         </div>
