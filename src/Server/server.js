@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const express = require('express');
 const server = express();
 // fs = require('fs');
@@ -16,7 +17,7 @@ server.get('/', function (req, res) {
   res.sendFile(INDEX);
 }).use(express.static(path.join(process.cwd(), '/dist/')));
 
-const users = {
+/* const users = {
   1: {
     id: '1',
     username: 'Robin Wieruch'
@@ -25,10 +26,13 @@ const users = {
     id: '2',
     username: 'Dave Davids'
   }
-};
+}; */
 
 server.get('/blogEntries', (req, res) => {
-  return res.send(Object.values(users));
+  fetch('./blogEntries.txt')
+    .then(response => { console.log(response); response.text(); })
+    .then(text => console.log(text));
+  // return res.send(Object.values(users));
 });
 
 server.put('/blogEntries', (req, res) => {

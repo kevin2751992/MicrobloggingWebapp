@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 function getNewBlogEntry () {
   console.log('hello');
   return fetch('/blogEntries')
-    .then(response => response.json())
-    .then(data => console.log(data));
+    .then(response => response.text())
+    .then(text => console.log(text));
 }
 
 function myFunction () {
