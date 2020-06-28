@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 const moment = require('moment');
 
-class Author {
+export class Author {
   constructor (name, avatarUrl) {
     this.name = name;
     this.avatarUrl = avatarUrl;
   }
 }
-class BlogPost {
+export class BlogPost {
   constructor ({ title, text, img }, { created }, { name, avatarUrl }) {
     this.content = { title: title, text: text, img: img };
     this.author = new Author(name, avatarUrl);
@@ -21,6 +21,7 @@ export class Blogservice {
 
     // this.createTestData();
     this.apiEndpoint = 'http://localhost:8080/getBlogEntries';
+    this.baseURL = 'http://localhost:8080/';
     // this.getBlogPosts();
   }
 

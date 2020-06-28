@@ -1,3 +1,7 @@
+
+import { BlogPost } from '../service/blogservice';
+const moment = require('moment');
+
 export class Modal {
   constructor () {
     console.log('hi');
@@ -44,13 +48,26 @@ export class Modal {
       // Optional Media
       const radioImg = document.getElementById('radioImg').checked;
       console.log('ImgRadio is checked?', radioImg);
+      let imgID = '';
       if (radioImg) {
         console.log('IMG is checked');
         const imgFile = document.getElementById('file').files[0];
+        console.log('IMG', imgFile);
         // genarateID
-        const imgID = imgFile.name + Math.floor(Math.random() * 999999);
+        imgID = Math.floor(Math.random() * 999999);
         console.log('IMG', imgID);
       }
+
+      const createdBlogPost = new BlogPost(
+        {
+          title: title,
+          text: blogBody,
+          img: imgID
+        },
+        { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+        { name: userName, avatarUrl: userImg }
+      );
+      console.log('to submit BlogPost', createdBlogPost);
 
       // Error handling
     });
