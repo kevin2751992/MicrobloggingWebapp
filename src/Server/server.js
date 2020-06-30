@@ -17,6 +17,7 @@ if ((process.argv[2]) && (process.argv[2] > 0)) {
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(fileUpload());
+server.use(express.static(path.join(process.cwd(), '/src/Server/database/blogPostImages')));
 // server.use('/static', express.static('MicrobloggingWebapp/dist'));
 
 // static SERVER

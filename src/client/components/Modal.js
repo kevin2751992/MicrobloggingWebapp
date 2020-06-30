@@ -67,7 +67,7 @@ export class Modal {
             {
               title: title,
               text: blogBody,
-              img: response.id
+              img: 'http://localhost:8080/' + response.id
             },
             { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
             { name: userName, avatarUrl: userImg }
