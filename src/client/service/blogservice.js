@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 const moment = require('moment');
+const FormData = require('form-data');
 
 export class Author {
   constructor (name, avatarUrl) {
@@ -78,5 +79,48 @@ export class Blogservice {
           resolve(promise);
         });
       });
+  }
+
+  uploadImg (img = {}, url = 'http://localhost:8080/uploadImage') {
+    console.log('img to upload', img);
+    console.log('upload to:', url);
+    var data = new FormData();
+    data.append('img', img.file);
+
+    return fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: data // body data type must match "Content-Type" header
+    }).then(result => {
+      return result; // parses JSON response into native JavaScript objects
+    });
+  }
+
+  postData (data = {}, url = 'http://localhost:8080/postBlogPost') {
+    // Default options are marked with *
+    console.log('base', url);
+    return fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(result => {
+      return result; // parses JSON response into native JavaScript objects
+    });
   }
 }

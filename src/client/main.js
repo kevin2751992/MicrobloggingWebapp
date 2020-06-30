@@ -6,11 +6,12 @@ import { Modal } from './components/modal';
 import { Blogservice } from './service/blogservice';
 
 window.onload = init;
+const blogservice = new Blogservice();
 
 function init () {
   // the code to be called when the dom has loaded
   // #document has its nodes
-  const blogservice = new Blogservice();
+
   blogservice.getBlogPosts().then(promisedBlogPosts => {
     const blogPosts = new BlogPosts(promisedBlogPosts);
     blogPosts.createBlogPosts();
@@ -21,7 +22,7 @@ function init () {
   document.getElementById('createButton').addEventListener('click', openModal);
 }
 function openModal () {
-  const modal = new Modal();
+  const modal = new Modal(blogservice);
   console.log('modal', modal);
 }
 

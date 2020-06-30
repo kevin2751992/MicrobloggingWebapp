@@ -3,8 +3,9 @@ import { BlogPost } from '../service/blogservice';
 const moment = require('moment');
 
 export class Modal {
-  constructor () {
+  constructor (blogService) {
     console.log('hi');
+    this.blogservice = blogService;
     // set Modal on show
     const modal = document.getElementById('modal');
     modal.classList.add('show');
@@ -49,9 +50,10 @@ export class Modal {
       const radioImg = document.getElementById('radioImg').checked;
       console.log('ImgRadio is checked?', radioImg);
       let imgID = '';
+      let imgFile = [];
       if (radioImg) {
         console.log('IMG is checked');
-        const imgFile = document.getElementById('file').files[0];
+        imgFile = document.getElementById('file').files[0];
         console.log('IMG', imgFile);
         // genarateID
         imgID = Math.floor(Math.random() * 999999);
@@ -68,6 +70,18 @@ export class Modal {
         { name: userName, avatarUrl: userImg }
       );
       console.log('to submit BlogPost', createdBlogPost);
+      console.log('test', this.blogservice);
+      // this.blogservice.postData(createdBlogPost);
+
+      if (imgFile && imgID) {
+        console.log('upload img called', imgFile);
+        const file = {
+          id: imgID,
+          file: imgFile
+        };
+
+        this.blogservice.uploadImg(file);
+      }
 
       // Error handling
     });
