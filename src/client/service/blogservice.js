@@ -99,9 +99,15 @@ export class Blogservice {
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: data // body data type must match "Content-Type" header
-    }).then(result => {
-      return result; // parses JSON response into native JavaScript objects
-    });
+    })
+      .then(id => {
+        console.log('id', data);
+        return new Promise((resolve, reject) => {
+          if (id) {
+            resolve(id);
+          } else reject(Error('Ups something went wrong while uploading, no Id was returned from the server'));
+        });
+      });
   }
 
   postData (data = {}, url = 'http://localhost:8080/postBlogPost') {
