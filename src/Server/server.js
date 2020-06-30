@@ -62,7 +62,12 @@ server.post('/uploadImage', (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
-  req.files.img.mv('./src/Server/database/blogPostImages/' + req.files.img.name, function (err) {
+  const id = Math.floor(Math.random() * 999999);
+  const name = req.files.img.name.split('.')[0];
+  const ext = req.files.img.name.split('.')[1];
+  const imgName = name + id + '.' + ext;
+  console.log('imgName', imgName);
+  req.files.img.mv('./src/Server/database/blogPostImages/' + imgName, function (err) {
     if (err) {
       console.log(err);
     }
@@ -74,7 +79,7 @@ server.post('/uploadImage', (req, res) => {
     console.log('File saved');
   });} */
 
-  return res.status(200).send('file saved');
+  return res.status(200).send({ id: imgName });
 });
 
 server.listen(port, function () {

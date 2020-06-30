@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+
 const moment = require('moment');
 const FormData = require('form-data');
 
@@ -99,9 +100,9 @@ export class Blogservice {
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: data // body data type must match "Content-Type" header
-    })
+    }).then(response => response.json())
       .then(id => {
-        console.log('id', data);
+        console.log('id', id);
         return new Promise((resolve, reject) => {
           if (id) {
             resolve(id);

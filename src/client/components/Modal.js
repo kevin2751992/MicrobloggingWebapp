@@ -48,39 +48,43 @@ export class Modal {
 
       // Optional Media
       const radioImg = document.getElementById('radioImg').checked;
-      console.log('ImgRadio is checked?', radioImg);
-      let imgID = '';
+      const imgID = '';
       let imgFile = [];
       if (radioImg) {
-        console.log('IMG is checked');
         imgFile = document.getElementById('file').files[0];
-        console.log('IMG', imgFile);
-        // genarateID
-        imgID = Math.floor(Math.random() * 999999);
-        console.log('IMG', imgID);
       }
-
-      const createdBlogPost = new BlogPost(
-        {
-          title: title,
-          text: blogBody,
-          img: imgID
-        },
-        { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
-        { name: userName, avatarUrl: userImg }
-      );
-      console.log('to submit BlogPost', createdBlogPost);
-      console.log('test', this.blogservice);
-      // this.blogservice.postData(createdBlogPost);
-
-      if (imgFile && imgID) {
-        console.log('upload img called', imgFile);
+      // If we habe a img attached to the blogPost, then first upload the img and wait for the returned id of the server
+      if (imgFile) {
         const file = {
           id: imgID,
           file: imgFile
         };
 
-        this.blogservice.uploadImg(file);
+        this.blogservice.uploadImg(file).then(response => {
+          // If we received the id create the BlogPost and use the service to post the blogpost to the server
+          console.log('receivedID', response.id);
+          const createdBlogPost = new BlogPost(
+            {
+              title: title,
+              text: blogBody,
+              img: response.id
+            },
+            { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+            { name: userName, avatarUrl: userImg }
+          );
+          this.blogservice.postData(createdBlogPost);
+        });
+      } else {
+        const createdBlogPost = new BlogPost(
+          {
+            title: title,
+            text: blogBody,
+            img: ''
+          },
+          { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+          { name: userName, avatarUrl: userImg }
+        );
+        this.blogservice.postData(createdBlogPost);
       }
 
       // Error handling
