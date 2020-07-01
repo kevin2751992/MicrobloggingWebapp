@@ -46,34 +46,61 @@ export class Modal {
         window.alert('Body cannot be left blanc');
       }
 
-      // Optional Media
+      // ---------------------------IMGUpload-------------------------//
       const radioImg = document.getElementById('radioImg').checked;
       const imgID = '';
       let imgFile = [];
+      // IF the RadioIMG is checked start Img Upload
       if (radioImg) {
         imgFile = document.getElementById('file').files[0];
-      }
-      // If we habe a img attached to the blogPost, then first upload the img and wait for the returned id of the server
-      if (imgFile) {
-        const file = {
-          id: imgID,
-          file: imgFile
-        };
 
-        this.blogservice.uploadImg(file).then(response => {
-          // If we received the id create the BlogPost and use the service to post the blogpost to the server
-          console.log('receivedID', response.id);
-          const createdBlogPost = new BlogPost(
-            {
-              title: title,
-              text: blogBody,
-              img: 'http://localhost:8080/' + response.id
-            },
-            { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
-            { name: userName, avatarUrl: userImg }
-          );
-          this.blogservice.postData(createdBlogPost);
-        });
+        // If we habe a img attached to the blogPost, then first upload the img and wait for the returned id of the server
+        if (imgFile) {
+          const file = {
+            id: imgID,
+            file: imgFile
+          };
+
+          this.blogservice.uploadImg(file).then(response => {
+            // If we received the id create the BlogPost and use the service to post the blogpost to the server
+            console.log('receivedID', response.id);
+            const createdBlogPost = new BlogPost(
+              {
+                title: title,
+                text: blogBody,
+                img: 'http://localhost:8080/' + response.id
+              },
+              { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+              { name: userName, avatarUrl: userImg },
+              { longitude: '', latitude: '' }
+
+            );
+            this.blogservice.postData(createdBlogPost);
+          });
+        }
+      }
+
+      // -------------------------GEOLOCATION---------------/////
+      const radioGeo = document.getElementById('radioGeo').checked;
+      if (radioGeo) {
+        // Use navigation Obj to return geolocation if supported
+        if (navigator.geolocation) {
+          // get Longitude and Latitude
+          navigator.geolocation.getCurrentPosition((pos) => {
+            console.log('current pos', pos);
+            const createdBlogPost = new BlogPost(
+              {
+                title: title,
+                text: blogBody,
+                img: ''
+              },
+              { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+              { name: userName, avatarUrl: userImg },
+              { latitude: pos.coords.latitude, longitude: pos.coords.longitude }
+            );
+            this.blogservice.postData(createdBlogPost);
+          });
+        }
       } else {
         const createdBlogPost = new BlogPost(
           {
@@ -82,7 +109,8 @@ export class Modal {
             img: ''
           },
           { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
-          { name: userName, avatarUrl: userImg }
+          { name: userName, avatarUrl: userImg },
+          { latitude: '', longitude: '' }
         );
         this.blogservice.postData(createdBlogPost);
       }

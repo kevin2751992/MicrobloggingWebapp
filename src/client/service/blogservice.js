@@ -9,11 +9,13 @@ export class Author {
     this.avatarUrl = avatarUrl;
   }
 }
+
 export class BlogPost {
-  constructor ({ title, text, img }, { created }, { name, avatarUrl }) {
+  constructor ({ title, text, img }, { created }, { name, avatarUrl }, { latitude, longitude }) {
     this.content = { title: title, text: text, img: img };
     this.author = new Author(name, avatarUrl);
     this.meta = { created: created };
+    this.geolocation = { longitude: longitude, latitude: latitude };
   }
 }
 
@@ -68,9 +70,11 @@ export class Blogservice {
                 title: blogPost.content.title,
                 text: blogPost.content.text,
                 img: blogPost.content.img
+
               },
               { created: moment(blogPost.meta.created).format('DD.MM.YYYY, h:mm:ss ') },
-              { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl }
+              { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl },
+              { latitude: blogPost.geoLocation.latitude, longitude: blogPost.geoLocation.longitude }
 
             );
             console.log('maped', mapedPost);
