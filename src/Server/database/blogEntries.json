@@ -12,9 +12,9 @@
         "meta": {
             "created": "30.06.2020, 10:40:58 "
         },
-        "geoLocation": {
-            "latitude": "",
-            "longitude": ""
+        "geolocation": {
+            "latitude": "1",
+            "longitude": "2"
         }
     },
     {

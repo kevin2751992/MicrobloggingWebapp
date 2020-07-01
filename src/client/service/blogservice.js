@@ -74,7 +74,7 @@ export class Blogservice {
               },
               { created: moment(blogPost.meta.created).format('DD.MM.YYYY, h:mm:ss ') },
               { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl },
-              { latitude: blogPost.geoLocation.latitude, longitude: blogPost.geoLocation.longitude }
+              { longitude: blogPost.geolocation.longitude, latitude: blogPost.geolocation.latitude }
 
             );
             console.log('maped', mapedPost);
