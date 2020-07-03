@@ -14,8 +14,7 @@ export class Modal {
     // -----CloseHandler----> Close Modal on Click
     document.getElementById('closeModal').addEventListener('click', () => {
       console.log('close');
-      document.getElementById('modal').classList.remove('show');
-      document.getElementById('modal').classList.add('hide');
+      this.closeModal();
     });
     // -----Submit----> Create new BlogPost
     document.getElementById('post').addEventListener('click', () => {
@@ -79,6 +78,7 @@ export class Modal {
             );
             this.blogservice.postData(createdBlogPost);
             blogPosts.createSingleBlogPost(createdBlogPost);
+            this.closeModal();
           });
         }
       }
@@ -103,6 +103,7 @@ export class Modal {
             );
             this.blogservice.postData(createdBlogPost);
             blogPosts.createSingleBlogPost(createdBlogPost);
+            this.closeModal();
           });
         }
       } else {
@@ -118,6 +119,7 @@ export class Modal {
         );
         this.blogservice.postData(createdBlogPost);
         blogPosts.createSingleBlogPost(createdBlogPost);
+        this.closeModal();
       }
 
       // Error handling
@@ -138,5 +140,10 @@ export class Modal {
         document.getElementById('imgInput').classList.add('show');
       }
     });
+  }
+
+  closeModal () {
+    document.getElementById('modal').classList.remove('show');
+    document.getElementById('modal').classList.add('hide');
   }
 }
