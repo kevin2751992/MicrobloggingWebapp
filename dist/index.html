@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="boggify">  
+    <div class="boggify">
         <div class="header">
             <div class="linkContainer">
                 <a class="logo" href="#default">
@@ -32,35 +32,36 @@
                         <div class="header-left">
                             <img id="userImg" src="./assets/profile/kevinmessmer.jpg" class=avatar></img>
                             <p id="user" class="userNameLabel">Kevin Meßmer</p>
-                            <button class="closeButton"id=closeModal> 
-                                <span class="glyphicon glyphicon-remove"></span> 
+                            <button class="closeButton" id=closeModal>
+                                <span class="glyphicon glyphicon-remove"></span>
                             </button>
                         </div>
                     </div>
                     <div class="modalContentContainer">
                         <input id="blogtitle" class="titleInput" type="text" value="Title" name="" id="titleInput">
-                        <textarea class="contentInput" maxlength="1024" type="text" value=" Your Content" id="contentInput"></textarea>
+                        <textarea class="contentInput" maxlength="1024" type="text" value=" Your Content"
+                            id="contentInput"></textarea>
                     </div>
                     <div class="modalFooter">
-                       
+
                         <div class="inputContainer">
                             <label for="myfile"> Add to Post</label>
                             <div class="radio-item">
                                 <input id="radioImg" type="radio" id="ritema" name="uploadRadio" value="img">
                                 <label for="ritema">Image</label>
                             </div>
-                            
+
                             <div class="radio-item">
-                                <input id ="radioGeo"type="radio" id="ritemb" name="uploadRadio" value="geo">
+                                <input id="radioGeo" type="radio" id="ritemb" name="uploadRadio" value="geo">
                                 <label for="ritemb">GeoLocation</label>
                             </div>
                             <form id="imgInput" class="file-upload hide" action="/action_page.php">
-                                
+
                                 <input type="file" id="file" name="myfile">
-                              </form>
-                              
+                            </form>
+
                         </div>
-                        <button id= post class="active"> post </button> 
+                        <button id=post class="active"> post </button>
                     </div>
                 </div>
             </div>
@@ -83,16 +84,49 @@
                     <img src="./assets/ads/advertising.png" alt="advertising">
                     <img src="./assets/ads/advertising.png" alt="advertising">
                 </div>
+                <div>
+                    <iframe width="500" height="400" frameborder="0"
+                        src="https://www.bing.com/maps/embed?h=400&w=500&cp=49.7363898~6.639740499999999&lvl=15&typ=d&sty=r&src=SHELL&FORM=MBEDV8"
+                        scrolling="no">
+                    </iframe>
+                    <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+                        <a id="largeMapLink" target="_blank"
+                            href="https://www.bing.com/maps?cp=49~46.99999999999999&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">Größere
+                            Karte anzeigen</a> &nbsp; | &nbsp;
+                        
+                    </div>
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=49.7363898%2C%206.639740499999999&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                                href="https://www.whatismyip-address.com/divi-discount/"></a></div>
+                        <style>
+                            .mapouter {
+                                position: relative;
+                                text-align: right;
+                                height: 500px;
+                                width: 600px;
+                            }
+
+                            .gmap_canvas {
+                                overflow: hidden;
+                                background: none !important;
+                                height: 500px;
+                                width: 600px;
+                            }
+                        </style>
+                    </div>
+                </div>
                 <button id="testButton"> TestTitle</button>
             </aside>
-           
 
-            </div>
-            
-
-            
 
         </div>
+
+
+
+
+    </div>
     </div>
 </body>
 

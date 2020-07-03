@@ -72,7 +72,7 @@ export class Blogservice {
                 img: blogPost.content.img
 
               },
-              { created: moment(blogPost.meta.created).format('DD.MM.YYYY, h:mm:ss ') },
+              { created: moment(blogPost.meta.created, 'DD.MM.YYYY,h:mm:ss').format('DD.MM.YYYY, h:mm:ss ') },
               { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl },
               { longitude: blogPost.geolocation.longitude, latitude: blogPost.geolocation.latitude }
 

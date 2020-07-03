@@ -1,6 +1,6 @@
 
 // import { Modal } from './components/Modal';
-
+import { Map } from './map';
 export class BlogPosts {
   constructor (blogPosts) {
     this.blogPostsArray = blogPosts;
@@ -33,10 +33,6 @@ export class BlogPosts {
       const blogPostHeader = document.createElement('h2');
       blogPostHeader.className = 'blogPostHeader';
       blogPostHeader.innerHTML = item.content.title;
-
-      const blogPostimg = document.createElement('img');
-      blogPostimg.className = 'blogPostmedia';
-      blogPostimg.src = item.content.img;
 
       const blogPostText = document.createElement('p');
       blogPostText.className = 'blogPostText';
@@ -75,7 +71,18 @@ export class BlogPosts {
 
       // add BlogPost and its Meta to BlogPostContainer
       blogPostContainer.appendChild(metaContainer);
-      blogPostContainer.appendChild(blogPostimg);
+      if (item.content.img) {
+        const blogPostimg = document.createElement('img');
+        blogPostimg.className = 'blogPostmedia';
+        blogPostimg.src = item.content.img;
+        blogPostContainer.appendChild(blogPostimg);
+      }
+      if (item.geolocation && item.geolocation.longitude !== '' && item.geolocation.latitude !== '') {
+        console.log('create maps');
+        const map = new Map(item.geolocation.longitude, item.geolocation.latitude).createMap();
+        blogPostContainer.appendChild(map);
+      }
+
       blogPostContainer.appendChild(blogPost);
 
       // add BlogPostContainer to the bloggingContauner
