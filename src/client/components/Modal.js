@@ -1,5 +1,6 @@
 
 import { BlogPost } from '../service/blogservice';
+import { BlogPosts } from './blogPosts';
 const moment = require('moment');
 
 export class Modal {
@@ -19,6 +20,7 @@ export class Modal {
     // -----Submit----> Create new BlogPost
     document.getElementById('post').addEventListener('click', () => {
       console.log('submit');
+      const blogPosts = new BlogPosts();
       // MetaData
       // Timestamp
       var today = new Date();
@@ -76,6 +78,7 @@ export class Modal {
 
             );
             this.blogservice.postData(createdBlogPost);
+            blogPosts.createSingleBlogPost(createdBlogPost);
           });
         }
       }
@@ -99,6 +102,7 @@ export class Modal {
               { latitude: pos.coords.latitude, longitude: pos.coords.longitude }
             );
             this.blogservice.postData(createdBlogPost);
+            blogPosts.createSingleBlogPost(createdBlogPost);
           });
         }
       } else {
@@ -113,6 +117,7 @@ export class Modal {
           { latitude: '', longitude: '' }
         );
         this.blogservice.postData(createdBlogPost);
+        blogPosts.createSingleBlogPost(createdBlogPost);
       }
 
       // Error handling
