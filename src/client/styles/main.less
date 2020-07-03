@@ -1,29 +1,66 @@
-
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 //Themes
-@mainthemeBlue: #031c42;
+@mainThemeDarkBlue: #081c2d;
 @mainThemeWhite:#ffffff;
-@mainThemeLightBlue:dodgerblue;
+@mainThemeDarkBlue:#032c4a;
+@mainThemeButton:#032c4a;
+@mainHoverColor:#ddd;
 @blue: #004882;
+@mainFontColor:#666;
 @lite-blue: #0074BD;
 
 @XLFontSize:16px;
+@FontSize:14px;
+@smallFontSize:12px;
 
 //Basic Layout
+*{
+  box-sizing: border-box;
+}
 html{
-  background-color:@mainthemeBlue
+  background-color:@mainThemeDarkBlue;
+  color:@mainFontColor;
+
 }
 .boggify{
   box-sizing: border-box;
+  button{
+
+    float: left;
+    color: @mainFontColor;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px; 
+ 
+    border:none;
+    font-size:@FontSize
+
+  }
+  .radioButton{
+    font-size: 35px;
+    size: 32px;
+    height: 25px;
+    width: 25px;
+
+  }
+  .active {
+    background-color: @mainThemeDarkBlue;
+    color:@mainThemeWhite;
+  }
+
+
 
   .header {
     overflow: hidden;
     background-color:@mainThemeWhite;
     padding: 5px 10px;
-    color: black;
+    color: @mainFontColor;
     border-bottom: solid;
     border-width: 4px;
     border-color: #404244;
-   
 
       .linkContainer {
         width: 100%;
@@ -40,10 +77,11 @@ html{
 
         .header-right {
           float: right;
+          
 
           a {
             float: left;
-            color: black;
+            color:@mainFontColor;
             text-align: center;
             padding: 12px;
             text-decoration: none;
@@ -53,13 +91,13 @@ html{
             height:100%;
 
             .active {
-              background-color: @mainThemeLightBlue;
-              color: white;
+              background-color: @mainThemeDarkBlue;
+              color: @mainThemeWhite;
             }
         }
         a {
           float: left;
-          color: black;
+          color: @mainFontColor;
           text-align: center;
           padding: 12px;
           text-decoration: none;
@@ -68,39 +106,38 @@ html{
           border-radius: 4px; 
           height:100%;
         }
-    
         a:hover {
-          background-color: #003a71e0;
-          color: black;
+          background-color: @mainHoverColor;
+          color: @mainFontColor;
         }
-        
         /* Style the active/current link*/
         a.active {
-          background-color: @mainThemeLightBlue;
-          color: white;
+          background-color: @mainThemeDarkBlue;
+          color: @mainThemeWhite;
         }
-       
      }
-     
-
     }
-  
   }
   .main{
-
+    @import "./modal.less";
     .mainContainer{
       box-sizing: border-box;
       padding: 20px;
       float: left;
       width: 40%;
       margin-left: 10%;
-      border: solid;
+   
+      
+      .mainleftContainer{
 
-      .bloggingContainer{
-       
-  
-        @import "./blogPost.less";
+        .bloggingContainer{
+          @import "./blogPost.less";
+        }
+        @import "./pagination.less";
+
       }
+
+      
     }
 
     .aside-right{
@@ -108,12 +145,12 @@ html{
         width: 40%;
         float:right;
         padding:20px;
-        border:solid;
+       
 
       .highlightContainer{
         height: 400px;
         background-color: #176094;
-        border: solid;
+       
 
         
       }
@@ -123,7 +160,7 @@ html{
         .headerContainer{
 
           width: 300px;
-          background-color: #ffffff;
+          background-color:@mainThemeWhite;
           padding: 10px;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
@@ -131,7 +168,7 @@ html{
           box-sizing: border-box;
           h3{
             font-size:21px;
-            color: @mainthemeBlue;
+            color: @mainThemeDarkBlue;
             margin:0px
           }
 
@@ -152,12 +189,14 @@ html{
           display: flex;
           margin: auto;
         }
-      }
+      } 
     }
     
  
   }
 }
+
+
 
   /* Style the header links */
   

@@ -3,6 +3,11 @@ const express = require('express');
 const server = express();
 // fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+
+// var multer = require('multer');
+
 const INDEX = path.join(process.cwd(), '/dist/index.html');
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -12,32 +17,73 @@ if ((process.argv[2]) && (process.argv[2] > 0)) {
   port = process.argv[2];
 }
 
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(fileUpload());
+server.use(express.static(path.join(process.cwd(), '/src/Server/database/blogPostImages')));
+// server.use('/static', express.static('MicrobloggingWebapp/dist'));
+
 // static SERVER
 server.get('/', function (req, res) {
   res.sendFile(INDEX);
 }).use(express.static(path.join(process.cwd(), '/dist/')));
 
-const users = {
-  1: {
-    id: '1',
-    username: 'Robin Wieruch'
-  },
-  2: {
-    id: '2',
-    username: 'Dave Davids'
+server.get('/getBlogPosts', function (req, res) {
+  console.log('return BlogPosts');
+  let blogPosts;
+  try {
+    const DataBase = path.join(process.cwd(), '/src/Server/database/blogEntries.json');
+    blogPosts = fs.readFileSync(DataBase, { encoding: 'utf8' });
+  } catch (error) {
+    res.status('500').send('Error while Reading JSONFile:', error);
   }
-};
 
-server.get('/blogEntries', (req, res) => {
-  return res.send(Object.values(users));
+  res.status('200').send((blogPosts));
 });
 
-server.put('/blogEntries', (req, res) => {
-  return res.send('Received a PUT HTTP method');
+// route SERVER post
+server.post('/postBlogPost', (req, res) => {
+  console.log('data', req.body);
+  const blogPost = req.body;
+  var data = fs.readFileSync('./src/Server/database/blogEntries.json');
+  var json = JSON.parse(data);
+
+  json.push(blogPost);
+
+  fs.writeFile('./src/Server/database/blogEntries.json', JSON.stringify(json), function (error) {
+    if (error) {
+      return console.log('Error while file saving' + error);
+    }
+    console.log('File saved');
+  });
+
+  return res.status(200).send('Your BlogPost was saved');
 });
 
-server.delete('/blogEntries', (req, res) => {
-  return res.send('Received a DELETE HTTP method');
+server.post('/uploadImage', (req, res) => {
+  console.log('upload img ', req.files.img);
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  const id = Math.floor(Math.random() * 999999);
+  const name = req.files.img.name.split('.')[0];
+  const ext = req.files.img.name.split('.')[1];
+  const imgName = name + id + '.' + ext;
+  console.log('imgName', imgName);
+  req.files.img.mv('./src/Server/database/blogPostImages/' + imgName, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  /* fs.writeFile('./src/Server/database/blogPostImages/' + req.files.img.name, req.files.img, function (error) {
+    if (error) {
+      return console.log('Error while file saving' + error);
+
+    console.log('File saved');
+  });} */
+
+  return res.status(200).send({ id: imgName });
 });
 
 server.listen(port, function () {

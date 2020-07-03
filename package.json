@@ -17,9 +17,12 @@
     "serve": "npm run build && npm run start"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.2",
     "babel": "^6.23.0",
     "eslint-config-standard": "^14.1.1",
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "form-data": "^3.0.0",
     "less": "^3.11.1",
     "minify": "^5.1.1",
     "moment": "^2.27.0",
@@ -31,9 +34,13 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.10.1",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-minify": "^0.5.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.5.1",
     "nodemon": "^2.0.4"

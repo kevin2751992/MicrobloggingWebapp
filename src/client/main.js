@@ -1,33 +1,52 @@
-import fetch from 'node-fetch';
-import { BlogPosts } from './js/blogPosts';
-import { Pagination } from './js/pagination';
+
+// import fetch from 'node-fetch';
+import { BlogPosts } from './components/blogPosts';
+import { Pagination } from './components/pagination';
+import { Modal } from './components/modal';
+import { Blogservice } from './service/blogservice';
 
 window.onload = init;
-document.addEventListener('DOMContentLoaded', function (event) {
-  // the event occurred
-  console.log('loaded');
-  document.getElementById('testButton').addEventListener('click', myFunction);
-});
+const blogservice = new Blogservice();
 
 function init () {
   // the code to be called when the dom has loaded
   // #document has its nodes
-  const blogEntriy = new BlogPosts();
-  blogEntriy.createBlogPosts();
-  const pagination = new Pagination(blogEntriy.blogPostsArray.length);
-  pagination.createPagination();
 
-  // Add Eventlistener here
+  blogservice.getBlogPosts().then(promisedBlogPosts => {
+    const blogPosts = new BlogPosts(promisedBlogPosts);
+    blogPosts.createBlogPosts();
+    const pagination = new Pagination(blogPosts.blogPostsArray.length);
+    pagination.createPagination();
+  });
+
+  document.getElementById('createButton').addEventListener('click', openModal);
+}
+function openModal () {
+  const modal = new Modal(blogservice);
+  console.log('modal', modal);
 }
 
-function getNewBlogEntry () {
-  console.log('hello');
-  return fetch('/blogEntries')
-    .then(response => response.json())
-    .then(data => console.log(data));
+/* function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}) {
+  console.log('create new BlogEntry');
+
+  const options = {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+
+  fetch(url, options).then(response => {
+    console.log('fetch', JSON.stringify(response.body));
+
+    return response.json();
+  });
 }
 
 function myFunction () {
   console.log('clicked');
-  getNewBlogEntry();
-}
+
+  postNewBlogEntry('http://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
+} */
