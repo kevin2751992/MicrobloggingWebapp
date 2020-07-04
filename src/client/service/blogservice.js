@@ -59,11 +59,8 @@ export class Blogservice {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('data', data);
         return new Promise((resolve, reject) => {
           const promise = data.map(blogPost => {
-            console.log('post', blogPost);
-
             const mapedPost = new BlogPost(
 
               {
@@ -80,10 +77,32 @@ export class Blogservice {
             console.log('maped', mapedPost);
             return (mapedPost);
           });
-          console.log('promise', promise);
           resolve(promise);
         });
       });
+  }
+
+  sortBlogPost (blogPosts) {
+    // sice we using map to create the blogpost we have to sort them from old to new.
+    // So the last index is the newest in order to have the result that the newst appears as first item (see blogPost.js)
+    // nvm not needed anymore maybe for extra sorting feature
+    blogPosts = blogPosts.sort(function (blogPostA, blogPostB) {
+      console.log('a', blogPostA.meta.created);
+      console.log('b', blogPostB.meta.created);
+
+      if (moment(blogPostA.created, 'DD.MM.YYYY,h:mm:ss').isBefore(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
+        console.log('a ist früher');
+        return 1;
+      }
+      if (moment(blogPostA.meta.created, 'DD.MM.YYYY,h:mm:ss').isAfter(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
+        console.log('a ist später');
+        return -1;
+      }
+      // a muss gleich b sein
+      return 0;
+    });
+    console.log('sorted', blogPosts);
+    return blogPosts;
   }
 
   uploadImg (img = {}, url = 'http://localhost:8080/uploadImage') {

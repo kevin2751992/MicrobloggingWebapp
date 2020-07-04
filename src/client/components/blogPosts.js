@@ -95,6 +95,10 @@ export class BlogPosts {
     blogPostContainer.appendChild(blogPost);
 
     // add BlogPostContainer to the bloggingContauner
-    bloggingContainer.appendChild(blogPostContainer);
+    // bloggingContainer.appendChild(blogPostContainer);
+    if (blogPostContainer.children.length > 0) {
+      // bloggingContainer.insert(blogPostContainer);
+      bloggingContainer.insertBefore(blogPostContainer, bloggingContainer.children[0]);
+    }
   }
 }
