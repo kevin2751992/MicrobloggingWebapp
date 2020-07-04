@@ -7,6 +7,7 @@ import { Blogservice } from './service/blogservice';
 
 window.onload = init;
 const blogservice = new Blogservice();
+let pagination = null;
 
 function init () {
   // the code to be called when the dom has loaded
@@ -15,14 +16,14 @@ function init () {
   blogservice.getBlogPosts().then(promisedBlogPosts => {
     const blogPosts = new BlogPosts(promisedBlogPosts);
     blogPosts.createBlogPosts();
-    const pagination = new Pagination(blogPosts.blogPostsArray.length);
+    pagination = new Pagination(blogPosts.blogPostsArray.length);
     pagination.createPagination();
   });
 
   document.getElementById('createButton').addEventListener('click', openModal);
 }
 function openModal () {
-  const modal = new Modal(blogservice);
+  const modal = new Modal(blogservice, pagination);
   console.log('modal', modal);
 }
 

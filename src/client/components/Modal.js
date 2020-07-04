@@ -4,9 +4,11 @@ import { BlogPosts } from './blogPosts';
 const moment = require('moment');
 
 export class Modal {
-  constructor (blogService) {
+  constructor (blogService, pagination) {
     console.log('hi');
     this.blogservice = blogService;
+    this.pagination = pagination;
+    console.log('test', pagination.index);
     // set Modal on show
     const modal = document.getElementById('modal');
     modal.classList.add('show');
@@ -76,6 +78,7 @@ export class Modal {
               { longitude: '', latitude: '' }
 
             );
+            this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
             blogPosts.createSingleBlogPost(createdBlogPost);
             this.closeModal();
@@ -101,6 +104,7 @@ export class Modal {
               { name: userName, avatarUrl: userImg },
               { latitude: pos.coords.latitude, longitude: pos.coords.longitude }
             );
+            this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
             blogPosts.createSingleBlogPost(createdBlogPost);
             this.closeModal();
@@ -117,6 +121,7 @@ export class Modal {
           { name: userName, avatarUrl: userImg },
           { latitude: '', longitude: '' }
         );
+        this.pagination.getPage(1);
         this.blogservice.postData(createdBlogPost);
         blogPosts.createSingleBlogPost(createdBlogPost);
         this.closeModal();

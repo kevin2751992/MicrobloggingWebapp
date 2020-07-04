@@ -138,9 +138,12 @@ export class Pagination {
     const paginationlinks = document.getElementById('indexContainer').children;
     const activeIcon = paginationlinks[clickedIndex];
     activeIcon.classList.add('active');
+    console.log('ICON', activeIcon);
+    if (parseInt(clickedIndex) !== this.index) {
+      const prevActiveIcon = paginationlinks[this.index];
+      prevActiveIcon.classList.remove('active');
+    }
 
-    const prevActiveIcon = paginationlinks[this.index];
-    prevActiveIcon.classList.remove('active');
     console.log('clicked index', clickedIndex);
     console.log('max', this.maxPageNumber);
 
