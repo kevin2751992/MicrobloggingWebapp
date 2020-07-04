@@ -9,6 +9,11 @@ export class Pagination {
     this.index = 1;
     this.blogposts = document.getElementById('bloggingContainer').children;
 
+    this.getIndexHander = (event) => {
+      const clickedIndex = event.target.innerHTML;
+      this.getPage(clickedIndex);
+    };
+
     this.nextPageHandler = (event) => {
       console.log('current Index', this.index);
       // If we havent reached the last page then
@@ -106,6 +111,7 @@ export class Pagination {
     // Create for each page a index
     for (let i = 1; i <= this.maxPageNumber; i++) {
       const paginationlink = document.createElement('a');
+      paginationlink.addEventListener('click', this.getIndexHander);
       paginationlink.innerHTML = i;
       // init first index as active
       if (i === 1) {
@@ -119,6 +125,50 @@ export class Pagination {
     nextpage.addEventListener('click', this.nextPageHandler);
     indexContainer.appendChild(nextpage);
     paginationContainer.appendChild(indexContainer);
+  }
+
+  getPage (clickedIndex) {
+    // Example clicked index 2. Blogpost to show 11-20.  startshow=(2-1)*10+1=11, endShow=11+9=20
+    const startshow = ((clickedIndex - 1) * 10) + 1;
+    let endshow = startshow + 9;
+    const endhidden = (this.index) * 10;
+    const starthidden = endhidden - 9;
+
+    // Set new Index to active, and remove the active from the prev activ icon
+    const paginationlinks = document.getElementById('indexContainer').children;
+    const activeIcon = paginationlinks[clickedIndex];
+    activeIcon.classList.add('active');
+
+    const prevActiveIcon = paginationlinks[this.index];
+    prevActiveIcon.classList.remove('active');
+    console.log('clicked index', clickedIndex);
+    console.log('max', this.maxPageNumber);
+
+    if (parseInt(clickedIndex) > 1) {
+      const prevIcon = paginationlinks[0];
+      prevIcon.classList.remove('disabled');
+      const nextIcon = paginationlinks[paginationlinks.length - 1];
+      nextIcon.classList.remove('disabled');
+    }
+    if (parseInt(clickedIndex) === 1) {
+      const prevIcon = paginationlinks[0];
+      prevIcon.classList.add('disabled');
+      const nextIcon = paginationlinks[paginationlinks.length - 1];
+      nextIcon.classList.remove('disabled');
+    }
+
+    if (parseInt(clickedIndex) === this.maxPageNumber) {
+      console.log('disable icon');
+
+      const nextIcon = paginationlinks[paginationlinks.length - 1];
+      nextIcon.classList.add('disabled');
+
+      // if we reached the lastpage then set the endpoint to the last elemnt so we dont get outofbounce
+      endshow = this.blogposts.length;
+    }
+    this.updateBlogPost(starthidden, endhidden, startshow, endshow);
+    // set this index to clicked index
+    this.index = clickedIndex;
   }
 
   updateBlogPost (hideStart, hideEnd, showStart, showEnd) {
