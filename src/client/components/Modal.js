@@ -122,9 +122,10 @@ export class Modal {
           { latitude: '', longitude: '' }
         );
         this.pagination.getPage(1);
-        this.blogservice.postData(createdBlogPost);
+        this.blogservice.postData(createdBlogPost).then(result => {
+          this.closeModal();
+        });
         blogPosts.createSingleBlogPost(createdBlogPost);
-        this.closeModal();
       }
 
       // Error handling
@@ -150,5 +151,23 @@ export class Modal {
   closeModal () {
     document.getElementById('modal').classList.remove('show');
     document.getElementById('modal').classList.add('hide');
+
+    // Reset the Modal to default
+    // Title
+    document.getElementById('blogtitle').value = 'Title';
+    // BlogContent
+    document.getElementById('contentInput').value = '';
+    document.getElementById('radioGeo').checked = false;
+
+    // if imgRadio was checked  hide input and remove its value
+    if (document.getElementById('radioImg').checked) {
+      document.getElementById('imgInput').classList.remove('show');
+      document.getElementById('imgInput').classList.add('hide');
+      if (document.getElementById('file').files[0]) {
+        document.getElementById('file').value = '';
+      }
+    }
+
+    document.getElementById('radioImg').checked = false;
   }
 }
