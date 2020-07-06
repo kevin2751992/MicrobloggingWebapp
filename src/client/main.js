@@ -14,7 +14,8 @@ function init () {
   // #document has its nodes
 
   blogservice.getBlogPosts().then(promisedBlogPosts => {
-    const blogPosts = new BlogPosts(promisedBlogPosts);
+    const sortedBlogPosts = blogservice.sortBlogPost(promisedBlogPosts);
+    const blogPosts = new BlogPosts(sortedBlogPosts);
     blogPosts.createBlogPosts();
     pagination = new Pagination(blogPosts.blogPostsArray.length);
     pagination.createPagination();

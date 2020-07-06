@@ -16,17 +16,11 @@ export class BlogPosts {
       // Create BlogPostDiv and add its css class to it
       const blogPostContainer = document.createElement('div');
       blogPostContainer.className = 'blogPostContainer';
-      if (index > 10) {
-        blogPostContainer.classList.add('hidden');
-      } else {
-        blogPostContainer.classList.add('show');
-      }
-
-      this.createSingleBlogPost(item);
+      this.createSingleBlogPost(item, index);
     });
   }
 
-  createSingleBlogPost (item) {
+  createSingleBlogPost (item, index) {
     const bloggingContainer = document.getElementById('bloggingContainer');
     const blogPostContainer = document.createElement('div');
     blogPostContainer.className = 'blogPostContainer';
@@ -98,7 +92,13 @@ export class BlogPosts {
     // bloggingContainer.appendChild(blogPostContainer);
     if (blogPostContainer.children.length > 0) {
       // bloggingContainer.insert(blogPostContainer);
-      bloggingContainer.insertBefore(blogPostContainer, bloggingContainer.children[0]);
+      bloggingContainer.appendChild(blogPostContainer);
+    }
+    // hide all after the first ten posts
+    if (index > 9) {
+      blogPostContainer.classList.add('hidden');
+    } else {
+      blogPostContainer.classList.add('show');
     }
   }
 }
