@@ -80,7 +80,7 @@ export class Modal {
             );
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
-            blogPosts.createSingleBlogPost(createdBlogPost);
+            blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
             this.closeModal();
           });
         }
@@ -106,7 +106,8 @@ export class Modal {
             );
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
-            blogPosts.createSingleBlogPost(createdBlogPost);
+
+            blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
             this.closeModal();
           });
         }
@@ -125,7 +126,7 @@ export class Modal {
         this.blogservice.postData(createdBlogPost).then(result => {
           this.closeModal();
         });
-        blogPosts.createSingleBlogPost(createdBlogPost);
+        blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
       }
 
       // Error handling

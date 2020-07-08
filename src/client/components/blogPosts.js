@@ -16,11 +16,11 @@ export class BlogPosts {
       // Create BlogPostDiv and add its css class to it
       const blogPostContainer = document.createElement('div');
       blogPostContainer.className = 'blogPostContainer';
-      this.createSingleBlogPost(item, index);
+      this.createSingleBlogPost(item, index, false);
     });
   }
 
-  createSingleBlogPost (item, index) {
+  createSingleBlogPost (item, index, addPost) {
     const bloggingContainer = document.getElementById('bloggingContainer');
     const blogPostContainer = document.createElement('div');
     blogPostContainer.className = 'blogPostContainer';
@@ -92,7 +92,20 @@ export class BlogPosts {
     // bloggingContainer.appendChild(blogPostContainer);
     if (blogPostContainer.children.length > 0) {
       // bloggingContainer.insert(blogPostContainer);
-      bloggingContainer.appendChild(blogPostContainer);
+      console.log('add ned blogPost', addPost);
+      console.log('index', index);
+      console.log('item', item);
+      // Check if we add a Post after the site was already created,
+      if (addPost) {
+        // if we add something insert it before the first current Post, so it appears on Top as the newest Post
+        bloggingContainer.insertBefore(blogPostContainer, bloggingContainer.children[0]);
+        // Since we have now 11 Post hide the last one so we have 10 in total again
+        bloggingContainer.children[10].classList.remove('show');
+        bloggingContainer.children[10].classList.add('hide');
+      } else {
+        // If we building up the site and its posts
+        bloggingContainer.appendChild(blogPostContainer);
+      }
     }
     // hide all after the first ten posts
     if (index > 9) {
