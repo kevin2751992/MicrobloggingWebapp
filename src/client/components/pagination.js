@@ -1,7 +1,7 @@
 
 export class Pagination {
   constructor (numberOfBlogPosts) {
-    console.log('Amount of BlogPosts: ', numberOfBlogPosts);
+    // console.log('Amount of BlogPosts: ', numberOfBlogPosts);
     this.numberOfBlogPosts = numberOfBlogPosts;
     // Math.ceil round up -->33/10=4
     this.maxPageNumber = Math.ceil(this.numberOfBlogPosts / 10);
@@ -15,7 +15,7 @@ export class Pagination {
     };
 
     this.nextPageHandler = (event) => {
-      console.log('current Index', this.index);
+      // console.log('current Index', this.index);
       // If we havent reached the last page then
       if (this.index < this.maxPageNumber) {
         // Get Elements of indexContainer
@@ -26,8 +26,8 @@ export class Pagination {
         currentIndex.classList.remove('active');
         // Get the next Index and set it active
         this.index++;
-        console.log('next Index', this.index);
-        console.log('next IndexElemnt', currentIndex);
+        // console.log('next Index', this.index);
+        // console.log('next IndexElemnt', currentIndex);
         const nextIndex = paginationlinks[this.index];
         nextIndex.className = 'active';
         // if we now reached the last page disable the nexticon
@@ -52,7 +52,7 @@ export class Pagination {
       }
     };
     this.prevPageHandler = (event) => {
-      console.log('current Index', this.index);
+      // console.log('current Index', this.index);
       // If we are not on the startpage then
       if (this.index > 1) {
         // get indexContainer and its children
@@ -75,8 +75,8 @@ export class Pagination {
         }
         this.updateBlogPost(starthidden, endhidden, startshow, endshow);
 
-        console.log('prev Index', this.index);
-        console.log('prev IndexElemnt', currentIndex);
+        // console.log('prev Index', this.index);
+        // console.log('prev IndexElemnt', currentIndex);
         const nextIndex = paginationlinks[this.index];
         nextIndex.className = 'active';
 
@@ -115,7 +115,6 @@ export class Pagination {
       paginationlink.innerHTML = i;
       // init first index as active
       if (i === 1) {
-        console.log('active');
         paginationlink.className = 'active';
       }
       indexContainer.appendChild(paginationlink);
@@ -138,14 +137,11 @@ export class Pagination {
     const paginationlinks = document.getElementById('indexContainer').children;
     const activeIcon = paginationlinks[clickedIndex];
     activeIcon.classList.add('active');
-    console.log('ICON', activeIcon);
+
     if (parseInt(clickedIndex) !== this.index) {
       const prevActiveIcon = paginationlinks[this.index];
       prevActiveIcon.classList.remove('active');
     }
-
-    console.log('clicked index', clickedIndex);
-    console.log('max', this.maxPageNumber);
 
     if (parseInt(clickedIndex) > 1) {
       const prevIcon = paginationlinks[0];
@@ -161,8 +157,6 @@ export class Pagination {
     }
 
     if (parseInt(clickedIndex) === this.maxPageNumber) {
-      console.log('disable icon');
-
       const nextIcon = paginationlinks[paginationlinks.length - 1];
       nextIcon.classList.add('disabled');
 
@@ -175,8 +169,8 @@ export class Pagination {
   }
 
   updateBlogPost (hideStart, hideEnd, showStart, showEnd) {
-    console.log('blogpost to hide:', hideStart + ' bis', hideEnd);
-    console.log('blogpost to show:', showStart + ' bis', showEnd);
+    // console.log('blogpost to hide:', hideStart + ' bis', hideEnd);
+    // console.log('blogpost to show:', showStart + ' bis', showEnd);
     const blogPostsHTMlCol = document.getElementById('bloggingContainer').children;
     const blogPostArr = Array.prototype.slice.call(blogPostsHTMlCol);
     const blogPostsToHide = blogPostArr.slice(hideStart - 1, hideEnd);
@@ -189,8 +183,5 @@ export class Pagination {
       postToShow.classList.remove('hidden');
       postToShow.classList.add('show');
     });
-    console.log('posts to hide', blogPostsToHide);
-
-    console.log('posts to show', blogPostsToShow);
   }
 }

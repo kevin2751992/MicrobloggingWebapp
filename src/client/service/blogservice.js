@@ -30,7 +30,7 @@ export class Blogservice {
   }
 
   createTestData () {
-    for (let i = 1; i < 52; i++) {
+    for (let i = 1; i < 2; i++) {
       const staticBlogPost = new BlogPost(
         {
           title: 'TestTitle' + i,
@@ -38,7 +38,8 @@ export class Blogservice {
           img: 'https://via.placeholder.com/600'
         },
         { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, h:mm:ss ')).fromNow() },
-        { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' }
+        { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' },
+        { longitude: '', latitude: '' }
       );
       this.blogPosts[i] = staticBlogPost;
     }
@@ -74,7 +75,7 @@ export class Blogservice {
               { longitude: blogPost.geolocation.longitude, latitude: blogPost.geolocation.latitude }
 
             );
-            console.log('maped', mapedPost);
+            // console.log('maped', mapedPost);
             return (mapedPost);
           });
           resolve(promise);
@@ -87,27 +88,22 @@ export class Blogservice {
     // So the last index is the newest in order to have the result that the newst appears as first item (see blogPost.js)
     // nvm not needed anymore maybe for extra sorting feature
     blogPosts = blogPosts.sort(function (blogPostA, blogPostB) {
-      console.log('a', blogPostA.meta.created);
-      console.log('b', blogPostB.meta.created);
-
       if (moment(blogPostA.created, 'DD.MM.YYYY,h:mm:ss').isBefore(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
-        console.log('a ist früher');
+        // console.log('a ist früher');
         return 1;
       }
       if (moment(blogPostA.meta.created, 'DD.MM.YYYY,h:mm:ss').isAfter(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
-        console.log('a ist später');
+        // console.log('a ist später');
         return -1;
       }
       // a muss gleich b sein
       return 0;
     });
-    console.log('sorted', blogPosts);
+    // console.log('sorted', blogPosts);
     return blogPosts;
   }
 
   uploadImg (img = {}, url = 'http://localhost:8080/uploadImage') {
-    console.log('img to upload', img);
-    console.log('upload to:', url);
     var data = new FormData();
     data.append('img', img.file);
 
@@ -125,7 +121,7 @@ export class Blogservice {
       body: data // body data type must match "Content-Type" header
     }).then(response => response.json())
       .then(id => {
-        console.log('id', id);
+        // console.log('id', id);
         return new Promise((resolve, reject) => {
           if (id) {
             resolve(id);
@@ -136,7 +132,7 @@ export class Blogservice {
 
   postData (data = {}, url = 'http://localhost:8080/postBlogPost') {
     // Default options are marked with *
-    console.log('base', url);
+    // console.log('base', url);
     return fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin

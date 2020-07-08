@@ -239,6 +239,7 @@ html {
   float: left;
   width: 40%;
   margin-left: 10%;
+  padding-top: 3pc;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer {
   background-color: white;
@@ -362,14 +363,81 @@ html {
   padding: 20px;
 }
 .boggify .main .aside-right .highlightContainer {
-  height: 400px;
-  background-color: #176094;
+  padding-right: 15%;
+}
+.boggify .main .aside-right .highlightContainer .headerContainer {
+  padding-right: 4pc;
+  padding-left: 4pc;
+}
+.boggify .main .aside-right .highlightContainer .headerContainer .header {
+  overflow: hidden;
+  background-color: #022c4a;
+  padding: 5px 10px;
+  color: white;
+  border-bottom: solid;
+  border-width: 2px;
+  border-color: #ffffff;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer {
+  padding-left: 4pc;
+  padding-right: 4pc;
+  padding-top: 2pc;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer {
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .hidden {
+  display: none;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .show {
+  display: block;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer {
+  display: inline-flex;
+  padding: 5px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .avatar {
+  height: 64px;
+  width: 64px;
+  border-radius: 5px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer {
+  padding: 13px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer .label {
+  color: #032c4a;
+  display: flex;
+  font-size: 12px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPostmedia {
+  height: auto;
+  width: 100%;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost {
+  padding: 10px;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
+  font-size: 12px;
+  color: #666;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost .blogPostText {
+  font-size: 12px;
+  color: #666;
 }
 .boggify .main .aside-right .adContainer {
-  padding: 20px;
+  padding-left: 4pc;
+  padding-right: 9pc;
+  padding-top: 2pc;
 }
 .boggify .main .aside-right .adContainer .headerContainer {
-  width: 300px;
+  width: 100%;
   background-color: #ffffff;
   padding: 10px;
   border-top-left-radius: 5px;
@@ -388,8 +456,8 @@ html {
   border-color: #4a77a2;
 }
 .boggify .main .aside-right .adContainer img {
-  height: 300px;
-  width: 300px;
+  height: auto;
+  width: 100%;
   display: flex;
   margin: auto;
 }

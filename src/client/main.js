@@ -4,6 +4,7 @@ import { BlogPosts } from './components/blogPosts';
 import { Pagination } from './components/pagination';
 import { Modal } from './components/modal';
 import { Blogservice } from './service/blogservice';
+import { HighlightContent } from './components/highlightContent';
 
 window.onload = init;
 const blogservice = new Blogservice();
@@ -20,6 +21,9 @@ function init () {
     pagination = new Pagination(blogPosts.blogPostsArray.length);
     pagination.createPagination();
   });
+  blogservice.createTestData();
+  const highlightContent = new HighlightContent(blogservice.blogPosts);
+  highlightContent.initView();
 
   document.getElementById('createButton').addEventListener('click', openModal);
 }

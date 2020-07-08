@@ -5,10 +5,9 @@ const moment = require('moment');
 
 export class Modal {
   constructor (blogService, pagination) {
-    console.log('hi');
     this.blogservice = blogService;
     this.pagination = pagination;
-    console.log('test', pagination.index);
+
     // set Modal on show
     const modal = document.getElementById('modal');
     modal.classList.add('show');
@@ -28,12 +27,10 @@ export class Modal {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
       var dateTime = date + ' ' + time;
-      console.log('Date:', dateTime);
+
       // Author
       const userName = document.getElementById('user').innerHTML;
-      console.log('User:', userName);
       const userImg = document.getElementById('userImg').src;
-      console.log('UserImgUrl:', userImg);
 
       // BlogPost
       // Title
@@ -44,7 +41,6 @@ export class Modal {
       }
       // Content
       const blogBody = document.getElementById('contentInput').value;
-      console.log('Body:', blogBody);
       if (blogBody === '') {
         window.alert('Body cannot be left blanc');
       }
@@ -93,7 +89,6 @@ export class Modal {
         if (navigator.geolocation) {
           // get Longitude and Latitude
           navigator.geolocation.getCurrentPosition((pos) => {
-            console.log('current pos', pos);
             const createdBlogPost = new BlogPost(
               {
                 title: title,
@@ -133,14 +128,12 @@ export class Modal {
     });
     // ---RadioHandler Show and hide File updload
     document.getElementById('radioGeo').addEventListener('change', (event) => {
-      console.log('radio', event.target.value);
       if (event.target.value === 'geo') {
         document.getElementById('imgInput').classList.remove('show');
         document.getElementById('imgInput').classList.add('hide');
       }
     });
     document.getElementById('radioImg').addEventListener('change', (event) => {
-      console.log('changed');
       if (event.target.value === 'img') {
         console.log('show img upload');
         document.getElementById('imgInput').classList.remove('hide');

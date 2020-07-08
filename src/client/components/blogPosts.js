@@ -8,7 +8,6 @@ export class BlogPosts {
   }
 
   createBlogPosts () {
-    console.log('create BlogPosts', document);
     // get BlogPostContainer from document by its id
 
     // Create for each BlogPost a BlogPostElement and append it to the container
@@ -81,7 +80,6 @@ export class BlogPosts {
       blogPostContainer.appendChild(blogPostimg);
     }
     if (item.geolocation && item.geolocation.longitude !== '' && item.geolocation.latitude !== '') {
-      console.log('create maps');
       const map = new Map(item.geolocation.longitude, item.geolocation.latitude).createMap();
       blogPostContainer.appendChild(map);
     }
@@ -92,9 +90,9 @@ export class BlogPosts {
     // bloggingContainer.appendChild(blogPostContainer);
     if (blogPostContainer.children.length > 0) {
       // bloggingContainer.insert(blogPostContainer);
-      console.log('add ned blogPost', addPost);
-      console.log('index', index);
-      console.log('item', item);
+      // console.log('add ned blogPost', addPost);
+      // console.log('index', index);
+      // console.log('item', item);
       // Check if we add a Post after the site was already created,
       if (addPost) {
         // if we add something insert it before the first current Post, so it appears on Top as the newest Post
