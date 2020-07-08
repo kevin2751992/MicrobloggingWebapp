@@ -24,6 +24,7 @@ function init () {
   blogservice.createTestData();
   const highlightContent = new HighlightContent(blogservice.blogPosts);
   highlightContent.initView();
+  highlightContent.carousel();
 
   document.getElementById('createButton').addEventListener('click', openModal);
 }

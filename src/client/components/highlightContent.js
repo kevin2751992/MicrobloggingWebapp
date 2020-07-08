@@ -1,6 +1,7 @@
 export class HighlightContent {
   constructor (content) {
     this.contentArray = content;
+    this.index = 0;
   }
 
   initView () {
@@ -17,10 +18,16 @@ export class HighlightContent {
     const mainInnerContainer = document.createElement('div');
     mainInnerContainer.className = 'mainInnerContainer';
 
-    this.contentArray.forEach(item => {
+    this.contentArray.forEach((item, index) => {
       // Create BlogPostElement (Container fot the blogPost)
-      const blogPostContainer = document.createElement('div');
-      blogPostContainer.className = 'blogPostContainer';
+
+      const highlightedBlogPost = document.createElement('div');
+      highlightedBlogPost.className = 'highlightedBlogPost';
+      if (index === 1) {
+        highlightedBlogPost.classList.add('show');
+      } else {
+        highlightedBlogPost.classList.add('hide');
+      }
       const blogPost = document.createElement('div');
       blogPost.className = 'blogPost';
       // Create HeadeContainer (Holds Header and Banner/MainImg/Geostatus)
@@ -65,23 +72,53 @@ export class HighlightContent {
       blogPost.appendChild(blogPostHeaderContainer);
       blogPost.appendChild(blogPostText);
 
-      // add BlogPost and its Meta to BlogPostContainer
-      blogPostContainer.appendChild(metaContainer);
+      // add BlogPost and its Meta to highlightedBlogPost
+      highlightedBlogPost.appendChild(metaContainer);
       if (item.content.img) {
         const blogPostimg = document.createElement('img');
         blogPostimg.className = 'blogPostmedia';
         blogPostimg.src = item.content.img;
-        blogPostContainer.appendChild(blogPostimg);
+        highlightedBlogPost.appendChild(blogPostimg);
       }
       if (item.geolocation && item.geolocation.longitude !== '' && item.geolocation.latitude !== '') {
         console.log('create maps');
         const map = new Map(item.geolocation.longitude, item.geolocation.latitude).createMap();
-        blogPostContainer.appendChild(map);
+        highlightedBlogPost.appendChild(map);
       }
-
-      blogPostContainer.appendChild(blogPost);
-      mainInnerContainer.appendChild(blogPostContainer);
+      /* const nextButton = document.createElement('button');
+      const nextIcon = document.createElement('span');
+      nextIcon.className = 'glyphicon glyphicon-chevron-right';
+      nextButton.appendChild(nextIcon);
+      const prevButton = document.createElement('button');
+      const prevIcon = document.createElement('span');
+      prevIcon.className = 'glyphicon glyphicon-chevron-left';
+      prevButton.appendChild(prevIcon); */
+      highlightedBlogPost.appendChild(blogPost);
+      mainInnerContainer.appendChild(highlightedBlogPost);
+      // mainInnerContainer.appendChild(nextButton);
+      // mainInnerContainer.appendChild(prevButton);
       highlightContainer.appendChild(mainInnerContainer);
     });
+  }
+
+  carousel () {
+    const highlightedContent = document.getElementsByClassName('highlightedBlogPost');
+    console.log('higlightedContent', highlightedContent);
+
+    for (let i = 0; i < highlightedContent.length; i++) {
+      highlightedContent[i].classList.remove('show');
+      highlightedContent[i].classList.add('hide');
+    }
+    this.index++;
+    if (this.index > highlightedContent.length) {
+      this.index = 1;
+    }
+    console.log('index', this.index);
+    console.log('length', highlightedContent.length);
+
+    highlightedContent[this.index - 1].classList.remove('hide');
+    console.log('contenr', highlightedContent[this.index]);
+    highlightedContent[this.index - 1].classList.add('show');
+    setTimeout(this.carousel.bind(this), 30000);
   }
 }

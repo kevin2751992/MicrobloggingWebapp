@@ -383,57 +383,66 @@ html {
   padding-right: 4pc;
   padding-top: 2pc;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .show {
+  display: block;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost {
   background-color: white;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .hidden {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .hidden {
   display: none;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .show {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .show {
   display: block;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer {
   display: inline-flex;
   padding: 5px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .avatar {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer .avatar {
   height: 64px;
   width: 64px;
   border-radius: 5px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer .metaHeaderContainer {
   padding: 13px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer p {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer .metaHeaderContainer p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .metaContainer .metaHeaderContainer .label {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer .metaHeaderContainer .label {
   color: #032c4a;
   display: flex;
   font-size: 12px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPostmedia {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPostmedia {
   height: auto;
   width: 100%;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost {
   padding: 10px;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 12px;
   color: #666;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .blogPostContainer .blogPost .blogPostText {
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostText {
   font-size: 12px;
   color: #666;
+}
+.boggify .main .aside-right .highlightContainer .hide {
+  display: none;
+}
+.boggify .main .aside-right .highlightContainer .show {
+  display: block;
 }
 .boggify .main .aside-right .adContainer {
   padding-left: 4pc;
-  padding-right: 9pc;
+  padding-right: 11pc;
   padding-top: 2pc;
 }
 .boggify .main .aside-right .adContainer .headerContainer {
