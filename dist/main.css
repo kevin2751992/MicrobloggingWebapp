@@ -382,9 +382,23 @@ html {
   padding-left: 4pc;
   padding-right: 4pc;
   padding-top: 2pc;
+  position: relative;
+  padding-bottom: 2pc;
 }
-.boggify .main .aside-right .highlightContainer .mainInnerContainer .show {
-  display: block;
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .dotContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: inline-flex;
+}
+.boggify .main .aside-right .highlightContainer .mainInnerContainer .dotContainer .dot {
+  height: 15px;
+  width: 15px;
+  border: solid;
+  /* background-color: grey; */
+  border-radius: 20px;
+  border-color: white;
+  border-width: 2px;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost {
   background-color: white;

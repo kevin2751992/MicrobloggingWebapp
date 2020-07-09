@@ -95,10 +95,19 @@ export class HighlightContent {
       prevButton.appendChild(prevIcon); */
       highlightedBlogPost.appendChild(blogPost);
       mainInnerContainer.appendChild(highlightedBlogPost);
+
       // mainInnerContainer.appendChild(nextButton);
       // mainInnerContainer.appendChild(prevButton);
       highlightContainer.appendChild(mainInnerContainer);
     });
+    const dotContainer = document.createElement('div');
+    dotContainer.className = 'dotContainer';
+    this.contentArray.forEach(content => {
+      const dot = document.createElement('span');
+      dot.className = 'dot';
+      dotContainer.appendChild(dot);
+    });
+    mainInnerContainer.appendChild(dotContainer);
   }
 
   carousel () {
