@@ -128,6 +128,14 @@ export class HighlightContent {
     highlightedContent[this.index - 1].classList.remove('hide');
     console.log('contenr', highlightedContent[this.index]);
     highlightedContent[this.index - 1].classList.add('show');
+
+    const dots = document.getElementsByClassName('dot');
+    if (this.index === 1) {
+      dots[dots.length - 1].classList.remove('active');
+    } else {
+      dots[this.index - 2].classList.remove('active');
+    }
+    dots[this.index - 1].classList.add('active');
     setTimeout(this.carousel.bind(this), 30000);
   }
 }
