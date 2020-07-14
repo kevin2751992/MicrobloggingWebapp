@@ -24,6 +24,8 @@ html{
 }
 .boggify{
   box-sizing: border-box;
+
+  
   button{
 
     float: left;
@@ -155,12 +157,12 @@ html{
     @import "./modal.less";
     .mainContainer{
       box-sizing: border-box;
-      padding: 20px;
+      padding: 0px;
       float: left;
       width: 40%;
-      margin-left: 10%;
+      margin-left: 7%;
       padding-top: 3pc;
-   
+    
       
       .mainleftContainer{
 
@@ -190,9 +192,9 @@ html{
       }
       .adContainer{
        
-        padding-right: 27%;
+        padding-right: 18%;
         padding-top: 2pc;
-        padding-left: 12%;
+        padding-left: 5%;
     
         .headerContainer{
 
@@ -250,6 +252,38 @@ html{
   
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (min-width: 1400px) {
+    .boggify{
+      .main{
+        @import "./modal.less";
+        
+        .mainContainer{
+          box-sizing: border-box;
+          padding: 20px;
+          float: left;
+          width: 40%;
+          margin-left: 10%;
+          padding-top: 3pc;
+        }
+
+      }
+    }
+    .boggify .main .aside-right .highlightContainer .mainInnerContainer {
+      padding-left: 15%;
+      padding-right: 15%;
+      padding-top: 2pc;
+      position: relative;
+      padding-bottom: 2pc;
+  }
+  .boggify .main .aside-right .adContainer {
+    padding-right: 27%;
+    padding-top: 2pc;
+    padding-left: 12%;
+
+  }
+
+    
+
+
     .header a {
       float: none;
       display: block;

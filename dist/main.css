@@ -273,10 +273,10 @@ html {
 }
 .boggify .main .mainContainer {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0px;
   float: left;
   width: 40%;
-  margin-left: 10%;
+  margin-left: 7%;
   padding-top: 3pc;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer {
@@ -405,7 +405,7 @@ html {
 }
 .boggify .main .aside-right .highlightContainer .headerContainer {
   padding-right: 4pc;
-  padding-left: 4pc;
+  padding-left: 1pc;
 }
 .boggify .main .aside-right .highlightContainer .headerContainer .header {
   overflow: hidden;
@@ -415,10 +415,11 @@ html {
   border-bottom: solid;
   border-width: 2px;
   border-color: #ffffff;
+  font-size: 24px;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer {
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 2pc;
   position: relative;
   padding-bottom: 2pc;
@@ -431,8 +432,8 @@ html {
   /* position: absolute; */
   /* left: 43%; */
   padding: 5px;
-  width: 25%;
-  margin-left: 25%;
+  width: 35%;
+  margin-left: 35%;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .dotContainer .dot {
   height: 10px;
@@ -506,10 +507,33 @@ html {
 .boggify .main .aside-right .highlightContainer .show {
   display: block;
 }
+@media screen and (min-width: 1400px) {
+  .boggify .main .aside-right .highlightContainer .headerContainer {
+    padding-right: 4pc;
+    padding-left: 4pc;
+  }
+  .boggify .main .aside-right .highlightContainer .headerContainer .header {
+    font-size: 26px;
+  }
+  .boggify .main .aside-right .highlightContainer .mainInnerContainer {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2pc;
+    position: relative;
+    padding-bottom: 2pc;
+  }
+  .boggify .main .aside-right .highlightContainer .mainInnerContainer .dotContainer {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    width: 25%;
+    margin-left: 25%;
+  }
+}
 .boggify .main .aside-right .adContainer {
-  padding-right: 27%;
+  padding-right: 18%;
   padding-top: 2pc;
-  padding-left: 12%;
+  padding-left: 5%;
 }
 .boggify .main .aside-right .adContainer .headerContainer {
   width: 100%;
@@ -542,6 +566,26 @@ html {
 /* Float the link section to the right */
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (min-width: 1400px) {
+  .boggify .main .mainContainer {
+    box-sizing: border-box;
+    padding: 20px;
+    float: left;
+    width: 40%;
+    margin-left: 10%;
+    padding-top: 3pc;
+  }
+  .boggify .main .aside-right .highlightContainer .mainInnerContainer {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2pc;
+    position: relative;
+    padding-bottom: 2pc;
+  }
+  .boggify .main .aside-right .adContainer {
+    padding-right: 27%;
+    padding-top: 2pc;
+    padding-left: 12%;
+  }
   .header a {
     float: none;
     display: block;

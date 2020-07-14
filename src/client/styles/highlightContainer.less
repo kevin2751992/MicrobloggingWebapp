@@ -2,8 +2,8 @@
 
     .headerContainer{
        
-        padding-right: 4pc;
-        padding-left: 4pc;
+      padding-right: 4pc;
+      padding-left: 1pc;
 
         .header{
         overflow: hidden;
@@ -13,15 +13,18 @@
         border-bottom: solid;
         border-width: 2px;
         border-color: #ffffff;
+        font-size: 24px;
 
         }
     }
     .mainInnerContainer{
-        padding-left: 15%;
-        padding-right: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
         padding-top: 2pc;
         position: relative;
         padding-bottom: 2pc;
+
+
         .dotContainer{
           position: absolute; 
           bottom: 0;
@@ -30,8 +33,8 @@
           /* position: absolute; */
           /* left: 43%; */
           padding: 5px;
-          width: 25%;
-          margin-left: 25%;
+          width: 35%;
+          margin-left: 35%;
 
             .dot{
               height: 10px;
@@ -134,3 +137,32 @@
         display: block;
     }
 
+  @media screen and (min-width: 1400px) {
+
+    .headerContainer{
+       
+      padding-right: 4pc;
+      padding-left: 4pc;
+      .header {
+        font-size:26px
+      }
+    }
+
+      .mainInnerContainer {
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 2pc;
+        position: relative;
+        padding-bottom: 2pc;
+
+        .dotContainer {
+          position: absolute;
+          bottom: 0;
+          padding: 5px;
+          width: 25%;
+          margin-left: 25%;
+        } 
+    }
+  }
+
+    
