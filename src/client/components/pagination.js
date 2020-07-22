@@ -1,8 +1,10 @@
-
+// var L = require('leaflet');
 export class Pagination {
-  constructor (numberOfBlogPosts) {
+  constructor (numberOfBlogPosts, maps) {
     // console.log('Amount of BlogPosts: ', numberOfBlogPosts);
     this.numberOfBlogPosts = numberOfBlogPosts;
+    this.maps = maps;
+    console.log('maps in pagination', this.maps);
     // Math.ceil round up -->33/10=4
     this.maxPageNumber = Math.ceil(this.numberOfBlogPosts / 10);
     // index 1 (first and last item in index container is the previcon/nexticon so we start at index 1)
@@ -164,6 +166,12 @@ export class Pagination {
       endshow = this.blogposts.length;
     }
     this.updateBlogPost(starthidden, endhidden, startshow, endshow);
+    // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
+    // after the map is initilized we have to inform it that we changed the size of the container.
+    // Since we use Css to show or hide posts we ran in thats issue also when we change a page. We need to track our maps and inform them when we change the page.
+    this.maps.forEach(map => {
+      map.invalidateSize();
+    });
     // set this index to clicked index
     this.index = clickedIndex;
   }

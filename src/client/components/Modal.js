@@ -126,11 +126,13 @@ export class Modal {
 
       // Error handling
     });
-    // ---RadioHandler Show and hide File updload
+    // ---RadioHandler Show and hide File/Geo updload
     document.getElementById('radioGeo').addEventListener('change', (event) => {
       if (event.target.value === 'geo') {
         document.getElementById('imgInput').classList.remove('show');
         document.getElementById('imgInput').classList.add('hide');
+        document.getElementById('geoInput').classList.remove('hide');
+        document.getElementById('geoInput').classList.add('show');
       }
     });
     document.getElementById('radioImg').addEventListener('change', (event) => {
@@ -138,6 +140,9 @@ export class Modal {
         console.log('show img upload');
         document.getElementById('imgInput').classList.remove('hide');
         document.getElementById('imgInput').classList.add('show');
+
+        document.getElementById('geoInput').classList.remove('show');
+        document.getElementById('geoInput').classList.add('hide');
       }
     });
   }

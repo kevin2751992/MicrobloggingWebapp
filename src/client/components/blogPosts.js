@@ -1,10 +1,14 @@
 
 // import { Modal } from './components/Modal';
+
 import { Map } from './map';
+var L = require('leaflet');
 export class BlogPosts {
   constructor (blogPosts) {
     this.blogPostsArray = blogPosts;
     console.log('TestData', this.blogPostsArray);
+    console.log('Test', L);
+    this.mapps = [];
   }
 
   createBlogPosts () {
@@ -80,8 +84,10 @@ export class BlogPosts {
       blogPostContainer.appendChild(blogPostimg);
     }
     if (item.geolocation && item.geolocation.longitude !== '' && item.geolocation.latitude !== '') {
-      const map = new Map(item.geolocation.longitude, item.geolocation.latitude).createMap();
-      blogPostContainer.appendChild(map);
+      const map = new Map(item.geolocation.longitude, item.geolocation.latitude);
+      blogPostContainer.appendChild(map.createMap());
+      this.mapps.push(map.map);
+      console.log('map', map.map);
     }
 
     blogPostContainer.appendChild(blogPost);

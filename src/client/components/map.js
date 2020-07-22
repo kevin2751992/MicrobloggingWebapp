@@ -1,9 +1,7 @@
-
+var L = require('leaflet');
 export class Map {
-  constructor (longitude, latitude) {
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.zoom = 15;
+  constructor (geoJSon) {
+    this.geoJson = geoJSon;
   }
 
   createMap () {
@@ -13,21 +11,29 @@ export class Map {
     mapouter.className = 'mapouter';
 
     const mapCanvas = document.createElement('div');
+    mapCanvas.id = 'map' + Math.random();
     mapContainer.className = 'gmap_canvas';
+    console.log('id:', mapCanvas.id);
+    console.log('el:', document.getElementById(mapCanvas.id));
+    this.map = L.map(mapCanvas).setView([51.505, -0.09], 13);
+    L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
-    const iframe = document.createElement('iframe');
-    iframe.height = '500';
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      zoomOffset: -1,
+      accessToken: 'your.mapbox.access.token'
+    }).addTo(this.map);
+    // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
+    // after the map is initilized we have to inform it that we changed the size of the container.
+    this.map.whenReady(() => {
+      console.log('ready');
+      setTimeout(() => {
+        this.map.invalidateSize();
+      }, 0);
+    });
 
-    iframe.id = 'gmap_canvas';
-
-    iframe.src = 'https://maps.google.com/maps?q=' + this.latitude + '%2C%20' + this.longitude + '&t=&z=' + this.zoom + '&ie=UTF8&iwloc=&output=embed';
-    iframe.frameBorder = '0';
-    iframe.scrolling = 'no';
-    iframe.marginHeight = '0';
-    iframe.marginWidth = '0';
-    iframe.className = 'mapFrame';
-
-    mapCanvas.appendChild(iframe);
     mapouter.appendChild(mapCanvas);
     mapContainer.appendChild(mapouter);
     return mapContainer;

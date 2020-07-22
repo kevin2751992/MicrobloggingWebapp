@@ -1,24 +1,31 @@
 
 
 .gmap_canvas {
-    overflow: hidden;
-    background: none !important;
+   
     height: 500px;
     width: 100%;
 
     .mapouter {
-        position: relative;
-        text-align: right;
+    
         height: 500px;
         width: 100%;
 
-        .mapFrame{
-            width: 100%;
+        .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
             height: 500px;
 
-            .gm-style .place-card a:link{
-                display:none
+        }
+        .leaflet-container.leaflet-retina.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag{
+            height: 500px;
+        }
+        .leaflet-container .leaflet-overlay-pane svg, .leaflet-container .leaflet-marker-pane img, .leaflet-container .leaflet-shadow-pane img, .leaflet-container .leaflet-tile-pane img, .leaflet-container img.leaflet-image-layer, .leaflet-container .leaflet-tile {
+            max-width: none !important;
+            max-height: none !important;
+            
+            .leaflet-tile-loaded{
+              
             }
         }
+        
+
     }
 }

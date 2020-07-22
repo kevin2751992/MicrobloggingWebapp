@@ -11,13 +11,13 @@
         },
         "meta": {
             "created": "30.06.2020, 10:40:58 "
-        },
-        "geolocation": {
-            "latitude": "",
+        }, 
+        "geolocation": { 
+            "latitude": "", 
             "longitude": ""
         }
-    },
-    {
+    },  
+    { 
         "content": {
             "title": "Title2",
             "text": "Test",
@@ -1111,8 +1111,9 @@
             "created": "12.07.2020, 3:51:24 "
         },
         "geolocation": {
-            "longitude": "",
-            "latitude": ""
+            "longitude": 6.639740499999999,
+            "latitude": 49.7363898
         }
+        
     }
 ]

@@ -11,11 +11,12 @@ export class Author {
 }
 
 export class BlogPost {
-  constructor ({ title, text, img }, { created }, { name, avatarUrl }, { latitude, longitude }) {
+  constructor ({ title, text, img }, { created }, { name, avatarUrl }, { latitude, longitude }, geoJson) {
     this.content = { title: title, text: text, img: img };
     this.author = new Author(name, avatarUrl);
     this.meta = { created: created };
     this.geolocation = { longitude: longitude, latitude: latitude };
+    this.geoJson = geoJson;
   }
 }
 

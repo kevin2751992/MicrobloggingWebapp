@@ -1,4 +1,5 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+@import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
 * {
   box-sizing: border-box;
 }
@@ -123,7 +124,7 @@ html {
   display: none ;
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 500;
   /* Sit on top */
   left: 0;
   top: 0;
@@ -286,23 +287,27 @@ html {
   margin-bottom: 10px;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas {
-  overflow: hidden;
-  background: none !important;
   height: 500px;
   width: 100%;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter {
-  position: relative;
-  text-align: right;
   height: 500px;
   width: 100%;
 }
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .mapFrame {
-  width: 100%;
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
   height: 500px;
 }
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .mapFrame .gm-style .place-card a:link {
-  display: none;
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-retina.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag {
+  height: 500px;
+}
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-overlay-pane svg,
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-marker-pane img,
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-shadow-pane img,
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-tile-pane img,
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container img.leaflet-image-layer,
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .hidden {
   display: none;
