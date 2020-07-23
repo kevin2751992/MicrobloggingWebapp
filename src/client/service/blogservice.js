@@ -186,7 +186,7 @@ export class Blogservice {
 
   postData (data = {}, url = 'http://localhost:8080/postBlogPost') {
     // Default options are marked with *
-    // console.log('base', url);
+    console.log('post');
     return fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin

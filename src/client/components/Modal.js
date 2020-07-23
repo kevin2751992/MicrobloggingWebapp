@@ -1,12 +1,12 @@
 
 import { BlogPost } from '../service/blogservice';
-import { BlogPosts } from './blogPosts';
 const moment = require('moment');
 
 export class Modal {
-  constructor (blogService, pagination) {
+  constructor (blogService, pagination, blogposts) {
     this.blogservice = blogService;
     this.pagination = pagination;
+    this.blogPosts = blogposts;
 
     // set Modal on show
     const modal = document.getElementById('modal');
@@ -20,7 +20,6 @@ export class Modal {
     // -----Submit----> Create new BlogPost
     document.getElementById('post').addEventListener('click', () => {
       console.log('submit');
-      const blogPosts = new BlogPosts();
       // MetaData
       // Timestamp
       var today = new Date();
@@ -77,7 +76,7 @@ export class Modal {
             );
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
-            blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
+            this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
             this.closeModal();
           });
         }
@@ -100,18 +99,19 @@ export class Modal {
                 title: title,
                 text: blogBody,
                 img: '',
-                geoId: 'http://localhost:8080/' + response.id
+                geoId: response.id
               },
               { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
               { name: userName, avatarUrl: userImg },
               { latitude: '', longitude: '' }
             );
 
-            this.pagination.getPage(1);
-            this.blogservice.postData(createdBlogPost);
+            this.blogservice.postData(createdBlogPost).then(result => {
+              this.closeModal();
+            });
 
-            blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
-            this.closeModal();
+            this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
+            this.pagination.getPage(1);
           });
         }
       } else {
@@ -132,7 +132,7 @@ export class Modal {
         this.blogservice.postData(createdBlogPost).then(result => {
           this.closeModal();
         });
-        blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
+        this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
       }
 
       // Error handling to add check for extensions and so on ... if we have the time
@@ -161,13 +161,12 @@ export class Modal {
   closeModal () {
     document.getElementById('modal').classList.remove('show');
     document.getElementById('modal').classList.add('hide');
-
+    console.log('close');
     // Reset the Modal to default
     // Title
     document.getElementById('blogtitle').value = 'Title';
     // BlogContent
     document.getElementById('contentInput').value = '';
-    document.getElementById('radioGeo').checked = false;
 
     // if imgRadio was checked  hide input and remove its value
     if (document.getElementById('radioImg').checked) {
@@ -178,6 +177,16 @@ export class Modal {
       }
     }
 
+    // if geoRadio was checked  hide input and remove its value
+    if (document.getElementById('radioGeo').checked) {
+      document.getElementById('geoInput').classList.remove('show');
+      document.getElementById('geoInput').classList.add('hide');
+      if (document.getElementById('geoFile').files[0]) {
+        document.getElementById('geoFile').value = '';
+      }
+    }
+
     document.getElementById('radioImg').checked = false;
+    document.getElementById('radioGeo').checked = false;
   }
 }

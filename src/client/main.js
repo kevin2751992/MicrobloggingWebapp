@@ -9,14 +9,14 @@ import { HighlightContent } from './components/highlightContent';
 window.onload = init;
 const blogservice = new Blogservice();
 let pagination = null;
-
+let blogPosts = null;
 function init () {
   // the code to be called when the dom has loaded
   // #document has its nodes
 
   blogservice.getBlogPosts().then(promisedBlogPosts => {
     const sortedBlogPosts = blogservice.sortBlogPost(promisedBlogPosts);
-    const blogPosts = new BlogPosts(sortedBlogPosts, blogservice);
+    blogPosts = new BlogPosts(sortedBlogPosts, blogservice);
     blogPosts.createBlogPosts();
     pagination = new Pagination(blogPosts.blogPostsArray.length, blogPosts.mapps);
     pagination.createPagination();
@@ -29,6 +29,6 @@ function init () {
   document.getElementById('createButton').addEventListener('click', openModal);
 }
 function openModal () {
-  const modal = new Modal(blogservice, pagination);
+  const modal = new Modal(blogservice, pagination, blogPosts);
   console.log('modal', modal);
 }

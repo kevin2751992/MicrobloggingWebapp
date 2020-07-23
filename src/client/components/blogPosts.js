@@ -2,14 +2,14 @@
 // import { Modal } from './components/Modal';
 
 import { Map } from './map';
-var L = require('leaflet');
+
 export class BlogPosts {
   constructor (blogPosts, service) {
     this.blogservice = service;
     this.blogPostsArray = blogPosts;
     console.log('TestData', this.blogPostsArray);
-    console.log('Test', L);
     this.mapps = [];
+    console.log('test', this.blogPost);
   }
 
   createBlogPosts () {
@@ -86,8 +86,8 @@ export class BlogPosts {
     }
     if (item.content.geoId !== '' && item.content.geoId) {
       console.log('Blogpost id', item.content);
-      const map = new Map(item.content.geoId, this.blogservice);
-      blogPostContainer.appendChild(map.createMap());
+      const map = new Map(item.content.geoId, this.blogservice, blogPostContainer);
+      map.createMap();
 
       this.mapps.push(map.map);
       console.log('map', map.map);
