@@ -18,6 +18,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(fileUpload());
 server.use(express.static(path.join(process.cwd(), '/src/Server/database/blogPostImages')));
+server.use(express.static(path.join(process.cwd(), '/src/Server/database/blogPostGeoJson')));
 // server.use('/static', express.static('MicrobloggingWebapp/dist'));
 
 // static SERVER
@@ -39,6 +40,7 @@ server.get('/getBlogPosts', function (req, res) {
 
 // route SERVER post
 server.post('/postBlogPost', (req, res) => {
+  console.log('body', req.files);
   const blogPost = req.body;
   var data = fs.readFileSync('./src/Server/database/blogEntries.json');
   var json = JSON.parse(data);
@@ -54,7 +56,24 @@ server.post('/postBlogPost', (req, res) => {
 
   return res.status(200).send('Your BlogPost was saved');
 });
-
+server.post('/uploadGeojson', (req, res) => {
+  // Check if we received any Data send error if not
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  // Create a id and append it to the filename
+  const id = Math.floor(Math.random() * 999999);
+  const name = req.files.geoJson.name.split('.')[0];
+  const text = req.files.geoJson.name.split('.')[1];
+  const fileName = name + id + '.' + text;
+  console.log('file', req.files.geoJson);
+  req.files.geoJson.mv('./src/Server/database/blogPostGeoJson/' + fileName, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  return res.status(200).send({ id: fileName });
+});
 server.post('/uploadImage', (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');

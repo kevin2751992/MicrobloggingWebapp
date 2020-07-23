@@ -16,7 +16,7 @@ function init () {
 
   blogservice.getBlogPosts().then(promisedBlogPosts => {
     const sortedBlogPosts = blogservice.sortBlogPost(promisedBlogPosts);
-    const blogPosts = new BlogPosts(sortedBlogPosts);
+    const blogPosts = new BlogPosts(sortedBlogPosts, blogservice);
     blogPosts.createBlogPosts();
     pagination = new Pagination(blogPosts.blogPostsArray.length, blogPosts.mapps);
     pagination.createPagination();
@@ -32,28 +32,3 @@ function openModal () {
   const modal = new Modal(blogservice, pagination);
   console.log('modal', modal);
 }
-
-/* function postNewBlogEntry (url = 'http://localhost:8080/newBlogEntry', data = {}) {
-  console.log('create new BlogEntry');
-
-  const options = {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  };
-
-  fetch(url, options).then(response => {
-    console.log('fetch', JSON.stringify(response.body));
-
-    return response.json();
-  });
-}
-
-function myFunction () {
-  console.log('clicked');
-
-  postNewBlogEntry('http://localhost:8080/newBlogEntry', { title: 'myNewBlogEntry' });
-} */

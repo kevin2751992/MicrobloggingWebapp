@@ -11,12 +11,11 @@ export class Author {
 }
 
 export class BlogPost {
-  constructor ({ title, text, img }, { created }, { name, avatarUrl }, { latitude, longitude }, geoJson) {
-    this.content = { title: title, text: text, img: img };
+  constructor ({ title, text, img, geoId }, { created }, { name, avatarUrl }, { latitude, longitude }) {
+    this.content = { title: title, text: text, img: img, geoId: geoId };
     this.author = new Author(name, avatarUrl);
     this.meta = { created: created };
     this.geolocation = { longitude: longitude, latitude: latitude };
-    this.geoJson = geoJson;
   }
 }
 
@@ -63,12 +62,14 @@ export class Blogservice {
       .then(data => {
         return new Promise((resolve, reject) => {
           const promise = data.map(blogPost => {
+            console.log('map item', blogPost);
             const mapedPost = new BlogPost(
 
               {
                 title: blogPost.content.title,
                 text: blogPost.content.text,
-                img: blogPost.content.img
+                img: blogPost.content.img,
+                geoId: blogPost.content.geoId
 
               },
               { created: moment(blogPost.meta.created, 'DD.MM.YYYY,h:mm:ss').format('DD.MM.YYYY, h:mm:ss ') },
@@ -80,6 +81,31 @@ export class Blogservice {
             return (mapedPost);
           });
           resolve(promise);
+        });
+      });
+  }
+
+  getGeoJson (id) {
+    return fetch('http://localhost:8080/' + id, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+
+    }).then(response => response.json())
+      .then(data => {
+        return new Promise((resolve, reject) => {
+          console.log('geoJson', data);
+          if (data) {
+            resolve(data);
+          }
+          reject(Error('Error while fetching geoJson'));
         });
       });
   }
@@ -129,6 +155,33 @@ export class Blogservice {
           } else reject(Error('Ups something went wrong while uploading, no Id was returned from the server'));
         });
       });
+  }
+
+  uploadGeoJson (geo = {}, url = 'http://localhost:8080/uploadGeojson') {
+    var data = new FormData();
+    data.append('geoJson', geo);
+    // console.log('data', data);
+    return fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: data // body data type must match "Content-Type" header
+    }).then(response => response.json()).then(id => {
+      // console.log('id', id);
+      // After upload returns GeoId served by server
+      return new Promise((resolve, reject) => {
+        if (id) {
+          resolve(id);
+        } else reject(Error('Ups something went wrong while uploading, no Id was returned from the server'));
+      });
+    });
   }
 
   postData (data = {}, url = 'http://localhost:8080/postBlogPost') {

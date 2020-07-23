@@ -67,7 +67,8 @@ export class Modal {
               {
                 title: title,
                 text: blogBody,
-                img: 'http://localhost:8080/' + response.id
+                img: 'http://localhost:8080/' + response.id,
+                geoId: ''
               },
               { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
               { name: userName, avatarUrl: userImg },
@@ -85,20 +86,27 @@ export class Modal {
       // -------------------------GEOLOCATION---------------/////
       const radioGeo = document.getElementById('radioGeo').checked;
       if (radioGeo) {
-        // Use navigation Obj to return geolocation if supported
-        if (navigator.geolocation) {
-          // get Longitude and Latitude
-          navigator.geolocation.getCurrentPosition((pos) => {
+        // Get GeoJsonFile
+        const geoJsonFile = document.getElementById('geoFile').files[0];
+
+        console.log('geoJson', geoJsonFile);
+
+        if (geoJsonFile) {
+          // create BlogPost with GeoJsonfile
+          this.blogservice.uploadGeoJson(geoJsonFile).then(response => {
+            console.log('receivedID', response.id);
             const createdBlogPost = new BlogPost(
               {
                 title: title,
                 text: blogBody,
-                img: ''
+                img: '',
+                geoId: 'http://localhost:8080/' + response.id
               },
               { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
               { name: userName, avatarUrl: userImg },
-              { latitude: pos.coords.latitude, longitude: pos.coords.longitude }
+              { latitude: '', longitude: '' }
             );
+
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
 
@@ -107,15 +115,18 @@ export class Modal {
           });
         }
       } else {
+        // If no addition Media was selected create just a plain BlogPost
         const createdBlogPost = new BlogPost(
           {
             title: title,
             text: blogBody,
-            img: ''
+            img: '',
+            geoId: ''
           },
           { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
           { name: userName, avatarUrl: userImg },
-          { latitude: '', longitude: '' }
+          { latitude: '', longitude: '' },
+          []
         );
         this.pagination.getPage(1);
         this.blogservice.postData(createdBlogPost).then(result => {
@@ -124,7 +135,7 @@ export class Modal {
         blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
       }
 
-      // Error handling
+      // Error handling to add check for extensions and so on ... if we have the time
     });
     // ---RadioHandler Show and hide File/Geo updload
     document.getElementById('radioGeo').addEventListener('change', (event) => {

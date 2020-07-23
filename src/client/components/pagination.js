@@ -137,27 +137,30 @@ export class Pagination {
 
     // Set new Index to active, and remove the active from the prev activ icon
     const paginationlinks = document.getElementById('indexContainer').children;
+    // et current Index and set it active
     const activeIcon = paginationlinks[clickedIndex];
     activeIcon.classList.add('active');
-
+    // if a new index was selected get previndex via this.index and set in to inactive
     if (parseInt(clickedIndex) !== this.index) {
       const prevActiveIcon = paginationlinks[this.index];
       prevActiveIcon.classList.remove('active');
     }
-
+    // if the clicked index is not the first page, then enable the prevButtonIcon
     if (parseInt(clickedIndex) > 1) {
       const prevIcon = paginationlinks[0];
       prevIcon.classList.remove('disabled');
+      // enable also the nextIcon
       const nextIcon = paginationlinks[paginationlinks.length - 1];
       nextIcon.classList.remove('disabled');
     }
+    // clicked index= firstpage then disable previcon and enable next
     if (parseInt(clickedIndex) === 1) {
       const prevIcon = paginationlinks[0];
       prevIcon.classList.add('disabled');
       const nextIcon = paginationlinks[paginationlinks.length - 1];
       nextIcon.classList.remove('disabled');
     }
-
+    // last but not least check if the clicked index is the last page. disable next
     if (parseInt(clickedIndex) === this.maxPageNumber) {
       const nextIcon = paginationlinks[paginationlinks.length - 1];
       nextIcon.classList.add('disabled');
