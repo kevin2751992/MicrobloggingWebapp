@@ -89,8 +89,8 @@ export class BlogPosts {
       const map = new Map(item.content.geoId, this.blogservice, blogPostContainer);
       map.createMap();
 
-      this.mapps.push(map.map);
-      console.log('map', map.map);
+      this.mapps.push(map);
+      console.log('map', map);
     }
 
     blogPostContainer.appendChild(blogPost);

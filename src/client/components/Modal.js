@@ -46,6 +46,7 @@ export class Modal {
 
       // ---------------------------IMGUpload-------------------------//
       const radioImg = document.getElementById('radioImg').checked;
+      const radioGeo = document.getElementById('radioGeo').checked;
       const imgID = '';
       let imgFile = [];
       // IF the RadioIMG is checked start Img Upload
@@ -77,14 +78,12 @@ export class Modal {
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
             this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
+            window.location.reload();
             this.closeModal();
           });
         }
-      }
-
-      // -------------------------GEOLOCATION---------------/////
-      const radioGeo = document.getElementById('radioGeo').checked;
-      if (radioGeo) {
+      } else if (radioGeo) {
+        // -------------------------GEOLOCATION---------------/////
         // Get GeoJsonFile
         const geoJsonFile = document.getElementById('geoFile').files[0];
 
@@ -107,6 +106,7 @@ export class Modal {
             );
 
             this.blogservice.postData(createdBlogPost).then(result => {
+              window.location.reload();
               this.closeModal();
             });
 
@@ -130,6 +130,7 @@ export class Modal {
         );
         this.pagination.getPage(1);
         this.blogservice.postData(createdBlogPost).then(result => {
+          window.location.reload();
           this.closeModal();
         });
         this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);

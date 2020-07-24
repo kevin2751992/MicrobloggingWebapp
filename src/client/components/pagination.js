@@ -172,9 +172,10 @@ export class Pagination {
     // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
     // after the map is initilized we have to inform it that we changed the size of the container.
     // Since we use Css to show or hide posts we ran in thats issue also when we change a page. We need to track our maps and inform them when we change the page.
-    this.maps.forEach(map => {
+    /* this.maps.forEach(map => {
+      console.log('map', map);
       map.invalidateSize();
-    });
+    }); */
     // set this index to clicked index
     this.index = clickedIndex;
   }
