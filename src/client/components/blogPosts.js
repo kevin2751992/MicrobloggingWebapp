@@ -7,16 +7,21 @@ export class BlogPosts {
   constructor (blogPosts, service) {
     this.blogservice = service;
     this.blogPostsArray = blogPosts;
-    console.log('TestData', this.blogPostsArray);
+    this.activeBlogPots = this.blogPostsArray.filter((post, index) => {
+      if (index < 10) {
+        return post;
+      }
+    });
+    console.log('active', this.activeBlogPots);
     this.mapps = [];
-    console.log('test', this.blogPost);
+    // console.log('test', this.blogPost);
   }
 
   createBlogPosts () {
     // get BlogPostContainer from document by its id
 
     // Create for each BlogPost a BlogPostElement and append it to the container
-    this.blogPostsArray.forEach((item, index) => {
+    this.activeBlogPots.forEach((item, index) => {
       // Create BlogPostDiv and add its css class to it
       const blogPostContainer = document.createElement('div');
       blogPostContainer.className = 'blogPostContainer';
@@ -85,12 +90,9 @@ export class BlogPosts {
       blogPostContainer.appendChild(blogPostimg);
     }
     if (item.content.geoId !== '' && item.content.geoId) {
-      console.log('Blogpost id', item.content);
+      // console.log('Blogpost id', item.content);
       const map = new Map(item.content.geoId, this.blogservice, blogPostContainer);
-      map.createMap();
-
-      this.mapps.push(map);
-      console.log('map', map);
+      this.mapps.push(map.createMap());
     }
 
     blogPostContainer.appendChild(blogPost);

@@ -1,7 +1,6 @@
 var L = require('leaflet');
 export class Map {
   constructor (id, blogservice, container) {
-    console.log('test', blogservice);
     this.id = id;
     this.blogservice = blogservice;
     this.container = container;
@@ -9,12 +8,11 @@ export class Map {
 
   createMap (geoJSon) {
     // Wait for GeoJson Promise and then start init map
-    console.log(this.blogservice);
+
     const mapContainer = document.createElement('div');
-    console.log('id', this.id);
+
     this.blogservice.getGeoJson(this.id).then(geoJSon => {
       this.geoJson = geoJSon;
-      console.log('geos', this.geoJson);
 
       mapContainer.className = 'blogPostmedia';
       const mapouter = document.createElement('div');
@@ -23,7 +21,6 @@ export class Map {
       const mapCanvas = document.createElement('div');
       mapCanvas.id = 'map' + Math.random();
       mapContainer.className = 'gmap_canvas';
-      console.log('cords', this.geoJson.features[0].geometry.coordinates);
       this.map = L.map(mapCanvas).setView([49.85881, 6.54471], 36);
       L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
@@ -44,14 +41,13 @@ export class Map {
       }).addTo(this.map);
 
       const geoJson = L.geoJSON(this.geoJson).addTo(this.map);
-      console.log('geojsonLaywe', geoJson);
+
       this.map.fitBounds(geoJson.getBounds());
       this.map.flyTo(geoJson.getBounds().getCenter(), 12);
 
       // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
       // after the map is initilized we have to inform it that we changed the size of the container.
       this.map.whenReady(() => {
-        console.log('ready');
         setTimeout(() => {
           this.map.invalidateSize();
         }, 100);

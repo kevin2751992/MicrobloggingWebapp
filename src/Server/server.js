@@ -40,7 +40,6 @@ server.get('/getBlogPosts', function (req, res) {
 
 // route SERVER post
 server.post('/postBlogPost', (req, res) => {
-  console.log('body', req.files);
   const blogPost = req.body;
   var data = fs.readFileSync('./src/Server/database/blogEntries.json');
   var json = JSON.parse(data);
@@ -66,7 +65,7 @@ server.post('/uploadGeojson', (req, res) => {
   const name = req.files.geoJson.name.split('.')[0];
   const text = req.files.geoJson.name.split('.')[1];
   const fileName = name + id + '.' + text;
-  console.log('file', req.files.geoJson);
+
   req.files.geoJson.mv('./src/Server/database/blogPostGeoJson/' + fileName, function (err) {
     if (err) {
       console.log(err);

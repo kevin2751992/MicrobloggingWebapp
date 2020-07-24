@@ -18,7 +18,7 @@ function init () {
     const sortedBlogPosts = blogservice.sortBlogPost(promisedBlogPosts);
     blogPosts = new BlogPosts(sortedBlogPosts, blogservice);
     blogPosts.createBlogPosts();
-    pagination = new Pagination(blogPosts.blogPostsArray.length, blogPosts.mapps);
+    pagination = new Pagination(blogPosts, blogPosts.mapps);
     pagination.createPagination();
   });
   blogservice.createTestData();

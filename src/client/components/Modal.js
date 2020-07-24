@@ -14,12 +14,10 @@ export class Modal {
 
     // -----CloseHandler----> Close Modal on Click
     document.getElementById('closeModal').addEventListener('click', () => {
-      console.log('close');
       this.closeModal();
     });
     // -----Submit----> Create new BlogPost
     document.getElementById('post').addEventListener('click', () => {
-      console.log('submit');
       // MetaData
       // Timestamp
       var today = new Date();
@@ -34,7 +32,7 @@ export class Modal {
       // BlogPost
       // Title
       const title = document.getElementById('blogtitle').value;
-      console.log('Title:', title);
+
       if (title === '') {
         window.alert('Title cannot be left blanc');
       }
@@ -62,7 +60,7 @@ export class Modal {
 
           this.blogservice.uploadImg(file).then(response => {
             // If we received the id create the BlogPost and use the service to post the blogpost to the server
-            console.log('receivedID', response.id);
+
             const createdBlogPost = new BlogPost(
               {
                 title: title,
@@ -78,7 +76,7 @@ export class Modal {
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
             this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
-            window.location.reload();
+            // window.location.reload();
             this.closeModal();
           });
         }
@@ -87,12 +85,9 @@ export class Modal {
         // Get GeoJsonFile
         const geoJsonFile = document.getElementById('geoFile').files[0];
 
-        console.log('geoJson', geoJsonFile);
-
         if (geoJsonFile) {
           // create BlogPost with GeoJsonfile
           this.blogservice.uploadGeoJson(geoJsonFile).then(response => {
-            console.log('receivedID', response.id);
             const createdBlogPost = new BlogPost(
               {
                 title: title,
@@ -106,7 +101,7 @@ export class Modal {
             );
 
             this.blogservice.postData(createdBlogPost).then(result => {
-              window.location.reload();
+              // window.location.reload();
               this.closeModal();
             });
 
@@ -130,7 +125,7 @@ export class Modal {
         );
         this.pagination.getPage(1);
         this.blogservice.postData(createdBlogPost).then(result => {
-          window.location.reload();
+          // window.location.reload();
           this.closeModal();
         });
         this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
@@ -149,7 +144,6 @@ export class Modal {
     });
     document.getElementById('radioImg').addEventListener('change', (event) => {
       if (event.target.value === 'img') {
-        console.log('show img upload');
         document.getElementById('imgInput').classList.remove('hide');
         document.getElementById('imgInput').classList.add('show');
 
@@ -162,7 +156,7 @@ export class Modal {
   closeModal () {
     document.getElementById('modal').classList.remove('show');
     document.getElementById('modal').classList.add('hide');
-    console.log('close');
+
     // Reset the Modal to default
     // Title
     document.getElementById('blogtitle').value = 'Title';

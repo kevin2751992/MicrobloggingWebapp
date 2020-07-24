@@ -1,15 +1,19 @@
 // var L = require('leaflet');
 export class Pagination {
-  constructor (numberOfBlogPosts, maps) {
+  constructor (blogPost, maps) {
     // console.log('Amount of BlogPosts: ', numberOfBlogPosts);
-    this.numberOfBlogPosts = numberOfBlogPosts;
+
+    this.blogposts = blogPost;
+    this.numberOfBlogPosts = blogPost.blogPostsArray.length;
+    console.log('posts in constructor', this.blogposts);
+    console.log('posts lengt', this.blogposts.blogPostsArray);
     this.maps = maps;
-    console.log('maps in pagination', this.maps);
+
     // Math.ceil round up -->33/10=4
     this.maxPageNumber = Math.ceil(this.numberOfBlogPosts / 10);
     // index 1 (first and last item in index container is the previcon/nexticon so we start at index 1)
     this.index = 1;
-    this.blogposts = document.getElementById('bloggingContainer').children;
+    // this.blogposts = document.getElementById('bloggingContainer').children;
 
     this.getIndexHander = (event) => {
       const clickedIndex = event.target.innerHTML;
@@ -43,7 +47,7 @@ export class Pagination {
           const nextIcon = paginationlinks[paginationlinks.length - 1];
           nextIcon.classList.add('disabled');
           // if we reached the lastpage then set the endpoint to the last elemnt so we dont get outofbounce
-          endshow = this.blogposts.length;
+          endshow = this.blogposts.blogPostsArray.length;
         }
         this.updateBlogPost(starthidden, endhidden, startshow, endshow);
         // if we not on the startpage enable the previcon
@@ -141,7 +145,8 @@ export class Pagination {
     const activeIcon = paginationlinks[clickedIndex];
     activeIcon.classList.add('active');
     // if a new index was selected get previndex via this.index and set in to inactive
-    if (parseInt(clickedIndex) !== this.index) {
+    if (parseInt(clickedIndex) !== parseInt(this.index)) {
+      console.log('breakpoint');
       const prevActiveIcon = paginationlinks[this.index];
       prevActiveIcon.classList.remove('active');
     }
@@ -166,34 +171,34 @@ export class Pagination {
       nextIcon.classList.add('disabled');
 
       // if we reached the lastpage then set the endpoint to the last elemnt so we dont get outofbounce
-      endshow = this.blogposts.length;
+      endshow = this.blogposts.blogPostsArray.length;
     }
     this.updateBlogPost(starthidden, endhidden, startshow, endshow);
-    // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
-    // after the map is initilized we have to inform it that we changed the size of the container.
-    // Since we use Css to show or hide posts we ran in thats issue also when we change a page. We need to track our maps and inform them when we change the page.
-    /* this.maps.forEach(map => {
-      console.log('map', map);
-      map.invalidateSize();
-    }); */
-    // set this index to clicked index
     this.index = clickedIndex;
   }
 
   updateBlogPost (hideStart, hideEnd, showStart, showEnd) {
-    // console.log('blogpost to hide:', hideStart + ' bis', hideEnd);
-    // console.log('blogpost to show:', showStart + ' bis', showEnd);
-    const blogPostsHTMlCol = document.getElementById('bloggingContainer').children;
-    const blogPostArr = Array.prototype.slice.call(blogPostsHTMlCol);
-    const blogPostsToHide = blogPostArr.slice(hideStart - 1, hideEnd);
-    blogPostsToHide.forEach(postToHide => {
-      postToHide.classList.remove('show');
-      postToHide.classList.add('hidden');
+    console.log('this', this);
+    console.log('blogpost to hide:', hideStart + ' bis', hideEnd);
+    console.log('blogpost to show:', showStart + ' bis', showEnd);
+    console.log('posts', this.blogposts.blogPostsArray);
+    this.clearPage();
+    // const blogPostsHTMlCol = document.getElementById('bloggingContainer');
+    this.blogposts.activeBlogPots = this.blogposts.blogPostsArray.filter((post, index) => {
+      if (index > showStart - 2 && index < showEnd) {
+        return post;
+      }
     });
-    const blogPostsToShow = blogPostArr.slice(showStart - 1, showEnd);
-    blogPostsToShow.forEach(postToShow => {
-      postToShow.classList.remove('hidden');
-      postToShow.classList.add('show');
+    this.blogposts.activeBlogPots.forEach(post => {
+      this.blogposts.createSingleBlogPost(post);
     });
+    console.log('active ', this.blogposts.activeBlogPots);
+  }
+
+  clearPage () {
+    const blogPostsHTMlCol = document.getElementById('bloggingContainer');
+    while (blogPostsHTMlCol.firstChild) {
+      blogPostsHTMlCol.removeChild(blogPostsHTMlCol.firstChild);
+    }
   }
 }

@@ -5,8 +5,6 @@ export class HighlightContent {
   }
 
   initView () {
-    console.log('highlight', this.contentArray);
-    console.log('is called');
     const highlightContainer = document.getElementById('highlightContainer');
     const headerContainer = document.createElement('div');
     const header = document.createElement('h2');
@@ -81,7 +79,6 @@ export class HighlightContent {
         highlightedBlogPost.appendChild(blogPostimg);
       }
       if (item.geolocation && item.geolocation.longitude !== '' && item.geolocation.latitude !== '') {
-        console.log('create maps');
         const map = new Map(item.geolocation.longitude, item.geolocation.latitude).createMap();
         highlightedBlogPost.appendChild(map);
       }
@@ -112,7 +109,6 @@ export class HighlightContent {
 
   carousel () {
     const highlightedContent = document.getElementsByClassName('highlightedBlogPost');
-    console.log('higlightedContent', highlightedContent);
 
     for (let i = 0; i < highlightedContent.length; i++) {
       highlightedContent[i].classList.remove('show');
@@ -122,11 +118,8 @@ export class HighlightContent {
     if (this.index > highlightedContent.length) {
       this.index = 1;
     }
-    console.log('index', this.index);
-    console.log('length', highlightedContent.length);
 
     highlightedContent[this.index - 1].classList.remove('hide');
-    console.log('contenr', highlightedContent[this.index]);
     highlightedContent[this.index - 1].classList.add('show');
 
     const dots = document.getElementsByClassName('dot');

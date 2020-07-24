@@ -62,7 +62,7 @@ export class Blogservice {
       .then(data => {
         return new Promise((resolve, reject) => {
           const promise = data.map(blogPost => {
-            console.log('map item', blogPost);
+            // console.log('map item', blogPost);
             const mapedPost = new BlogPost(
 
               {
@@ -101,7 +101,6 @@ export class Blogservice {
     }).then(response => response.json())
       .then(data => {
         return new Promise((resolve, reject) => {
-          console.log('geoJson', data);
           if (data) {
             resolve(data);
           }
@@ -186,7 +185,7 @@ export class Blogservice {
 
   postData (data = {}, url = 'http://localhost:8080/postBlogPost') {
     // Default options are marked with *
-    console.log('post');
+
     return fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
