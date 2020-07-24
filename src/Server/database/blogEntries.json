@@ -509,5 +509,24 @@
             "longitude": "",
             "latitude": ""
         }
+    },
+    {
+        "content": {
+            "title": "Title 3",
+            "text": "Test1234",
+            "img": "http://localhost:8080/91985342347045.jpg",
+            "geoId": ""
+        },
+        "author": {
+            "name": "Kevin Meßmer",
+            "avatarUrl": "http://localhost:8080/assets/profile/kevinmessmer.jpg"
+        },
+        "meta": {
+            "created": "24.07.2020, 7:30:25 "
+        },
+        "geolocation": {
+            "longitude": "",
+            "latitude": ""
+        }
     }
 ]

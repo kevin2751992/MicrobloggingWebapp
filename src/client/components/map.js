@@ -13,15 +13,13 @@ export class Map {
 
     this.blogservice.getGeoJson(this.id).then(geoJSon => {
       this.geoJson = geoJSon;
-
       mapContainer.className = 'blogPostmedia';
       const mapouter = document.createElement('div');
       mapouter.className = 'mapouter';
-
       const mapCanvas = document.createElement('div');
       mapCanvas.id = 'map' + Math.random();
       mapContainer.className = 'gmap_canvas';
-      this.map = L.map(mapCanvas).setView([49.85881, 6.54471], 36);
+      this.map = L.map(mapCanvas).setView([49.7887, 6.4469], 12);
       L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
       /* L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -33,7 +31,7 @@ export class Map {
       }).addTo(this.map); */
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
+        maxZoom: 20,
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
@@ -41,9 +39,10 @@ export class Map {
       }).addTo(this.map);
 
       const geoJson = L.geoJSON(this.geoJson).addTo(this.map);
-
-      this.map.fitBounds(geoJson.getBounds());
-      this.map.flyTo(geoJson.getBounds().getCenter(), 12);
+      console.log('bounds', geoJson.getBounds());
+      this.map.flyTo(geoJson.getBounds().getCenter(), 11);
+      console.log(geoJson.getBounds().isValid());
+      // this.map.fitBounds(geoJson.getBounds(), { padding: [50, 50] });
 
       // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
       // after the map is initilized we have to inform it that we changed the size of the container.
