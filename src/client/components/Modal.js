@@ -76,7 +76,8 @@ export class Modal {
             this.pagination.getPage(1);
             this.blogservice.postData(createdBlogPost);
             this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
-            // window.location.reload();
+            // window reload to show changes n ot optimal but otherwise we ran into a porblem with leaflet and the containersize
+            window.location.reload();
             this.closeModal();
           });
         }
@@ -101,7 +102,8 @@ export class Modal {
             );
 
             this.blogservice.postData(createdBlogPost).then(result => {
-              // window.location.reload();
+              // window reload to show changes n ot optimal but otherwise we ran into a porblem with leaflet and the containersize
+              window.location.reload();
               this.closeModal();
             });
 
@@ -125,7 +127,7 @@ export class Modal {
         );
         this.pagination.getPage(1);
         this.blogservice.postData(createdBlogPost).then(result => {
-          // window.location.reload();
+          window.location.reload();
           this.closeModal();
         });
         this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
@@ -190,7 +192,7 @@ export class Modal {
 
     switch (expectedType) {
       case 'image': {
-        if (ext === 'png' || ext === 'jpeg') {
+        if (ext === 'png' || ext === 'jpeg' || ext === 'jpg') {
           return true;
         }
         window.alert('File was no Image');
