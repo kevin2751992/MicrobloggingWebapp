@@ -9,7 +9,7 @@ export class HighlightContent {
     const headerContainer = document.createElement('div');
     const header = document.createElement('h2');
     header.className = 'header';
-    header.innerText = 'Unsere Highlights';
+    header.innerText = 'Our Highlights';
     headerContainer.appendChild(header);
     headerContainer.className = 'headerContainer';
     highlightContainer.appendChild(headerContainer);

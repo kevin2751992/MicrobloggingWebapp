@@ -350,6 +350,7 @@ html {
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 16px;
   color: #666;
+  word-wrap: break-word;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
   font-size: 16px;
@@ -506,9 +507,11 @@ html {
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostHeaderContainer .blogPostHeader {
   font-size: 12px;
   color: #666;
+  word-wrap: break-word;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostText {
   font-size: 12px;
+  word-wrap: break-word;
   color: #666;
 }
 .boggify .main .aside-right .highlightContainer .hide {
