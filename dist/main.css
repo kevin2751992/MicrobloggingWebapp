@@ -297,21 +297,12 @@ html {
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
   height: 500px;
 }
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .‚leaflet-container.leaflet-touch-drag {
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-touch-drag {
   height: 100%;
   width: 100%;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-retina.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag {
   height: 500px;
-}
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-overlay-pane svg,
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-marker-pane img,
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-shadow-pane img,
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-tile-pane img,
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container img.leaflet-image-layer,
-.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container .leaflet-tile {
-  max-width: none !important;
-  max-height: none !important;
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .hidden {
   display: none;
@@ -495,7 +486,7 @@ html {
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .metaContainer .metaHeaderContainer .label {
   color: #032c4a;
   display: flex;
-  font-size: 12px;
+  font-size: 10px;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPostmedia {
   height: auto;
@@ -505,7 +496,7 @@ html {
   padding: 10px;
 }
 .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostHeaderContainer .blogPostHeader {
-  font-size: 12px;
+  font-size: 16px;
   color: #666;
   word-wrap: break-word;
 }
@@ -541,6 +532,17 @@ html {
     padding: 5px;
     width: 25%;
     margin-left: 25%;
+  }
+  .boggify .main .aside-right .highlightContainer .highlightedBlogPost .metaContainer .metaHeaderContainer .label {
+    color: #032c4a;
+    display: flex;
+    font-size: 12px;
+  }
+  .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostText {
+    font-size: 14px;
+  }
+  .boggify .main .aside-right .highlightContainer .mainInnerContainer .highlightedBlogPost .blogPost .blogPostHeaderContainer .blogPostHeader {
+    font-size: 14px;
   }
 }
 .boggify .main .aside-right .adContainer {

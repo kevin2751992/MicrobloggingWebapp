@@ -36,9 +36,9 @@ export class Blogservice {
         {
           const firstPost = new BlogPost(
             {
-              title: 'TestTitle' + i,
-              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-              img: 'https://via.placeholder.com/600'
+              title: '7 myths uncovered about trip ideas',
+              text: '7 myths uncovered about trip ideas. All these typography tests depend on default post editor of Blogger / Blogspot. Why you never succeed at family trip ideas. Why student tours will change your life.',
+              img: 'http://1.bp.blogspot.com/-h2xxeMUGWf0/VfejSy0OG7I/AAAAAAAANis/uzNo-ECQDpA/s1600/business_blackboard-light-man_102K.jpg'
             },
             { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
             { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
@@ -52,11 +52,11 @@ export class Blogservice {
         {
           const secondPost = new BlogPost(
             {
-              title: 'TestTitle' + i,
-              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-              img: 'https://via.placeholder.com/600'
+              title: 'Why individual sport is on crack about individual sport',
+              text: 'Why individual sport is on crack about individual sport. How individual rights can help you predict the future. Wedding gifts by the numbers. How homemade beauty products can help you live a better life. Expose: youre losing money by not using individual rights. 16 ideas you can steal from gossip magazines. 19 movies with unbelievable scenes about inspirational books. What wikipedia cant tell you about individual rights. The 14 best love test youtube videos. Why the next 10 years of celebrity tattoos will smash the last 10.',
+              img: 'http://3.bp.blogspot.com/-Mv279_Mks24/VffXFNGh-ZI/AAAAAAAAPDI/lLDqbn46U1E/s1600/world_new-wall-street-of-world_149K.jpg'
             },
-            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
+            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')) },
             { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
             { longitude: '', latitude: '' }
           );
@@ -66,11 +66,11 @@ export class Blogservice {
         case 3: {
           const thirdPost = new BlogPost(
             {
-              title: 'TestTitle' + i,
-              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-              img: 'https://via.placeholder.com/600'
+              title: 'How analysis essays are the new analysis essays',
+              text: 'How analysis essays are the new analysis essays. The complete beginners guide to education cities. 11 things you dont want to hear about analysis essays. The oddest place you will find analysis templates. What the world would be like if political parties didnt exist. 19 facts about new technologies that will impress your friends. Why your air force portal never works out the way you plan. 6 things that wont happen in education cities. 20 facts about weather radars that will impress your friends. What the beatles could learn from military records.',
+              img: 'http://4.bp.blogspot.com/-8QE9Ne9jdXs/VffVe1HBpZI/AAAAAAAAO6g/o55dlrL_i_Y/s1600/travel_oversea-of-happiness_261K.jpg'
             },
-            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
+            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')) },
             { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
             { longitude: '', latitude: '' }
           );

@@ -129,6 +129,6 @@ export class HighlightContent {
       dots[this.index - 2].classList.remove('active');
     }
     dots[this.index - 1].classList.add('active');
-    setTimeout(this.carousel.bind(this), 30000);
+    setTimeout(this.carousel.bind(this), 15000);
   }
 }
