@@ -68,7 +68,7 @@ export class Modal {
                 img: 'http://localhost:8080/' + response.id,
                 geoId: ''
               },
-              { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+              { created: moment(dateTime).format('DD.MM.YYYY, HH:mm:ss ') },
               { name: userName, avatarUrl: userImg },
               { longitude: '', latitude: '' }
 
@@ -95,7 +95,7 @@ export class Modal {
                 img: '',
                 geoId: response.id
               },
-              { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+              { created: moment(dateTime).format('DD.MM.YYYY, HH:mm:ss ') },
               { name: userName, avatarUrl: userImg },
               { latitude: '', longitude: '' }
             );
@@ -118,7 +118,7 @@ export class Modal {
             img: '',
             geoId: ''
           },
-          { created: moment(dateTime).format('DD.MM.YYYY, h:mm:ss ') },
+          { created: moment(dateTime).format('DD.MM.YYYY, HH:mm:ss ') },
           { name: userName, avatarUrl: userImg },
           { latitude: '', longitude: '' },
           []

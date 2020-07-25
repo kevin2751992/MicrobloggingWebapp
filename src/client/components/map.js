@@ -37,12 +37,14 @@ export class Map {
         zoomOffset: -1,
         accessToken: 'pk.eyJ1Ijoia2V2aW4yNzUxOTkyIiwiYSI6ImNrY3lwcjhmcDBjOGwzM2xhbDNheGN1cGYifQ.t3FCFqUzVh-pq3eMapN2Bw'
       }).addTo(this.map);
-
+      console.log('geos', this.geoJson);
       const geoJson = L.geoJSON(this.geoJson).addTo(this.map);
       console.log('bounds', geoJson.getBounds());
+      // const test = [[49.84006, 7.17886], [50.34799, 7.65017]];
+
       this.map.flyTo(geoJson.getBounds().getCenter(), 11);
-      console.log(geoJson.getBounds().isValid());
-      // this.map.fitBounds(geoJson.getBounds(), { padding: [50, 50] });
+
+      // this.map.fitBounds(geoJson.getBounds());
 
       // This is a known and well-documented issue with Leaflet. If the map container div doesn't have a defined size at the point that the map initialises, the tiles don't load.
       // after the map is initilized we have to inform it that we changed the size of the container.
@@ -54,7 +56,11 @@ export class Map {
 
       mapouter.appendChild(mapCanvas);
       mapContainer.appendChild(mapouter);
-      this.container.appendChild(mapContainer);
+      // insert map befor the PostContent ( Title, Text)
+      // Position 0 = MetaContainer
+      // Position 1 = MediaContainer
+      // Position 2= Content
+      this.container.insertBefore(mapContainer, this.container.children[1]);
     });
   }
 

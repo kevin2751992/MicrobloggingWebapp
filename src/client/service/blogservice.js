@@ -37,7 +37,7 @@ export class Blogservice {
           text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
           img: 'https://via.placeholder.com/600'
         },
-        { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, h:mm:ss ')).fromNow() },
+        { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
         { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' },
         { longitude: '', latitude: '' }
       );
@@ -72,7 +72,7 @@ export class Blogservice {
                 geoId: blogPost.content.geoId
 
               },
-              { created: moment(blogPost.meta.created, 'DD.MM.YYYY,h:mm:ss').format('DD.MM.YYYY, h:mm:ss ') },
+              { created: moment(blogPost.meta.created, 'DD.MM.YYYY,h:mm:ss').format('DD.MM.YYYY, HH:mm:ss ') },
               { name: blogPost.author.name, avatarUrl: blogPost.author.avatarUrl },
               { longitude: blogPost.geolocation.longitude, latitude: blogPost.geolocation.latitude }
 
@@ -114,12 +114,13 @@ export class Blogservice {
     // So the last index is the newest in order to have the result that the newst appears as first item (see blogPost.js)
     // nvm not needed anymore maybe for extra sorting feature
     blogPosts = blogPosts.sort(function (blogPostA, blogPostB) {
-      if (moment(blogPostA.created, 'DD.MM.YYYY,h:mm:ss').isBefore(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
-        // console.log('a ist früher');
+      if (moment(blogPostA.meta.created, 'DD.MM.YYYY,h:mm:ss').isBefore(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
+        console.log(moment(blogPostA.created, 'DD.MM.YYYY,h:mm:ss'));
+        console.log(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'));
         return 1;
       }
       if (moment(blogPostA.meta.created, 'DD.MM.YYYY,h:mm:ss').isAfter(moment(blogPostB.meta.created, 'DD.MM.YYYY,h:mm:ss'))) {
-        // console.log('a ist später');
+        console.log('a ist später');
         return -1;
       }
       // a muss gleich b sein
