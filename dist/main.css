@@ -297,6 +297,10 @@ html {
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
   height: 500px;
 }
+.boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .‚leaflet-container.leaflet-touch-drag {
+  height: 100%;
+  width: 100%;
+}
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .gmap_canvas .mapouter .leaflet-container.leaflet-retina.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag {
   height: 500px;
 }
@@ -349,6 +353,7 @@ html {
 }
 .boggify .main .mainContainer .mainleftContainer .bloggingContainer .blogPostContainer .blogPost .blogPostText {
   font-size: 16px;
+  word-wrap: break-word;
   color: #666;
 }
 .boggify .main .mainContainer .mainleftContainer .paginationContainer {

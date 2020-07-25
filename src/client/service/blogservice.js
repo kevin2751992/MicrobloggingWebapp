@@ -31,17 +31,55 @@ export class Blogservice {
 
   createTestData () {
     for (let i = 1; i < 4; i++) {
-      const staticBlogPost = new BlogPost(
+      switch (i) {
+        case 1:
         {
-          title: 'TestTitle' + i,
-          text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          img: 'https://via.placeholder.com/600'
-        },
-        { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
-        { name: 'Kevin', avatarUrl: 'https://via.placeholder.com/100' },
-        { longitude: '', latitude: '' }
-      );
-      this.blogPosts[i] = staticBlogPost;
+          const firstPost = new BlogPost(
+            {
+              title: 'TestTitle' + i,
+              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+              img: 'https://via.placeholder.com/600'
+            },
+            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
+            { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
+            { longitude: '', latitude: '' }
+          );
+          this.blogPosts[i] = firstPost;
+
+          break;
+        }
+        case 2:
+        {
+          const secondPost = new BlogPost(
+            {
+              title: 'TestTitle' + i,
+              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+              img: 'https://via.placeholder.com/600'
+            },
+            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
+            { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
+            { longitude: '', latitude: '' }
+          );
+          this.blogPosts[i] = secondPost;
+          break;
+        }
+        case 3: {
+          const thirdPost = new BlogPost(
+            {
+              title: 'TestTitle' + i,
+              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+              img: 'https://via.placeholder.com/600'
+            },
+            { created: moment().startOf(moment(Date.now()).format('DD.MM.YYYY, hh:mm:ss ')).fromNow() },
+            { name: 'Kevin', avatarUrl: 'http://localhost:8080/assets/profile/kevinmessmer.jpg' },
+            { longitude: '', latitude: '' }
+          );
+          this.blogPosts[i] = thirdPost;
+          break;
+        }
+        default:
+          break;
+      }
     }
   }
 

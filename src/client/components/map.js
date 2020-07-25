@@ -20,7 +20,7 @@ export class Map {
       mapCanvas.id = 'map' + Math.random();
       mapContainer.className = 'gmap_canvas';
       this.map = L.map(mapCanvas).setView([49.7887, 6.4469], 12);
-      L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
+      // L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
       /* L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
