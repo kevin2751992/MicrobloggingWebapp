@@ -63,8 +63,8 @@ server.post('/uploadGeojson', (req, res) => {
   // Create a id and append it to the filename
   const id = Math.floor(Math.random() * 999999);
   const name = req.files.geoJson.name.split('.')[0];
-  const text = req.files.geoJson.name.split('.')[1];
-  const fileName = name + id + '.' + text;
+  const ext = req.files.geoJson.name.split('.')[1];
+  const fileName = name + id + '.' + ext;
 
   req.files.geoJson.mv('./src/Server/database/blogPostGeoJson/' + fileName, function (err) {
     if (err) {

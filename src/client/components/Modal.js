@@ -50,9 +50,9 @@ export class Modal {
       // IF the RadioIMG is checked start Img Upload
       if (radioImg) {
         imgFile = document.getElementById('file').files[0];
-
+        console.log('filnename', imgFile);
         // If we habe a img attached to the blogPost, then first upload the img and wait for the returned id of the server
-        if (imgFile) {
+        if (imgFile && this.checkExtension(imgFile.name, 'image')) {
           const file = {
             id: imgID,
             file: imgFile
@@ -85,7 +85,7 @@ export class Modal {
         // Get GeoJsonFile
         const geoJsonFile = document.getElementById('geoFile').files[0];
 
-        if (geoJsonFile) {
+        if (geoJsonFile && this.checkExtension(geoJsonFile.name, 'geo')) {
           // create BlogPost with GeoJsonfile
           this.blogservice.uploadGeoJson(geoJsonFile).then(response => {
             const createdBlogPost = new BlogPost(
@@ -183,5 +183,31 @@ export class Modal {
 
     document.getElementById('radioImg').checked = false;
     document.getElementById('radioGeo').checked = false;
+  }
+
+  checkExtension (filename, expectedType) {
+    const ext = filename.split('.')[1];
+
+    switch (expectedType) {
+      case 'image': {
+        if (ext === 'png' || ext === 'jpeg') {
+          return true;
+        }
+        window.alert('File was no Image');
+        return false;
+      }
+
+      case 'geo': {
+        console.log('ext', ext);
+        if (ext === 'json') {
+          return true;
+        }
+        console.log('false');
+        window.alert('File was no JSon');
+        return false;
+      }
+      default:
+        break;
+    }
   }
 }
