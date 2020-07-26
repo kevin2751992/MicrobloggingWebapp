@@ -74,11 +74,11 @@ export class Modal {
 
             );
             this.pagination.getPage(1);
-            this.blogservice.postData(createdBlogPost);
-            this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
-            // window reload to show changes n ot optimal but otherwise we ran into a porblem with leaflet and the containersize
-            window.location.reload();
-            this.closeModal();
+            this.blogservice.postData(createdBlogPost).then(result => {
+              // window reload to show changes n ot optimal but otherwise we ran into a porblem with leaflet and the containersize
+              window.location.reload();
+              this.closeModal();
+            });
           });
         }
       } else if (radioGeo) {
@@ -106,9 +106,6 @@ export class Modal {
               window.location.reload();
               this.closeModal();
             });
-
-            this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
-            this.pagination.getPage(1);
           });
         }
       } else {
@@ -130,7 +127,6 @@ export class Modal {
           window.location.reload();
           this.closeModal();
         });
-        this.blogPosts.createSingleBlogPost(createdBlogPost, 0, true);
       }
 
       // Error handling to add check for extensions and so on ... if we have the time
